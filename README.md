@@ -1,2 +1,0 @@
-# gregvial.github.io
-Blog!
