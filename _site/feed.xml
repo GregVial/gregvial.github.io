@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2016-10-17T18:44:37+01:00</updated><id>http://localhost:4000//</id><title type="html">Data Salience</title><subtitle>This blogs is all about Data Science!</subtitle><entry><title type="html">Analysing SAT scores across the US</title><link href="http://localhost:4000/2016/10/16/SAT-scores-analysis/" rel="alternate" type="text/html" title="Analysing SAT scores across the US" /><published>2016-10-16T00:00:00+01:00</published><updated>2016-10-16T00:00:00+01:00</updated><id>http://localhost:4000/2016/10/16/SAT-scores-analysis</id><content type="html" xml:base="http://localhost:4000/2016/10/16/SAT-scores-analysis/">&lt;h3 id=&quot;about-sat-scores&quot;&gt;About SAT scores&lt;/h3&gt;
+&lt;p&gt;The SAT is an english, paper-based standardized test widely used for college admissions in the United States. It consists of 3 parts: math, verbal and essay.&lt;/p&gt;
+
+&lt;p&gt;Grading works as follows: 200–800 (in 10-point increments) on each of math and verbal.
+The essay is scored on a scale of 0–24, in 1-point increments.&lt;/p&gt;
+
+&lt;p&gt;It is estimated that in 2015 over 1.6 million students over the world took the test.&lt;/p&gt;
+
+&lt;p&gt;In this article, we study average results for verbal and math in 2015 for each US states (essay is excluded). We also have statistics about the participation rate per state.&lt;/p&gt;
+
+&lt;h4 id=&quot;how-does-participation-rate-impact-results&quot;&gt;How does participation rate impact results&lt;/h4&gt;
+
+&lt;p&gt;Based on the data available, we may ask ourselves whether there is a link between the participation rate and the scores.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/MathVerbalVsPart.png&quot; alt=&quot;MathVerbalVsPart&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Surprisingly, there seems to be such a correlation as shown in the graphs above. The higher the participation rate, the lower the average score for both math and verbal.&lt;/p&gt;
+
+&lt;p&gt;One possible interpretation is that in states with a high response rates, all types of students took part to the SAT. In states with a lower response rate, only the best students took part to it.&lt;/p&gt;
+
+&lt;h4 id=&quot;how-math-results-impact-verbal-results-and-vice-versa&quot;&gt;How math results impact verbal results (and vice versa)&lt;/h4&gt;
+
+&lt;p&gt;We may also ask ourselves how verbal and math tests correlate to each other, if they do.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/MathVerbal.png&quot; alt=&quot;MathVerbal&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We can clearly see a very strong positive correlation between the math and verbal grades, i.e. in every states but one, the math score goes up witht he verbal score, and vice versa.&lt;/p&gt;
+
+&lt;p&gt;One possible interpretation is that in average students are usuly equaly good for both math and verbal. Those scoring high in one will score high in the other as well, and likewise those scoring low in one might score low in the other.
+This interpretation would need more data to be supported as their might be other reasons explaining this correlation.&lt;/p&gt;
+
+&lt;p&gt;As mentionned, there is one exception where in average verbal score are much higher than math score, and this is Ohio. Lack of additional data prevents us from analysing further this fact.&lt;/p&gt;
+
+&lt;h4 id=&quot;which-states-participate-the-most&quot;&gt;Which states participate the most&lt;/h4&gt;
+&lt;p&gt;By creating a heatmap of the participation rate per state, we have a very visual representation of &lt;em&gt;which states participate most&lt;/em&gt; ot the SAT tests.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/participation.png&quot; alt=&quot;Participation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;What we clearly see is that east and west coast states tend to have a much higher participation rate than central states, with the exception of Texas and Indiana.&lt;/p&gt;
+
+&lt;p&gt;The explanation for this phenomena might be linked to the average income in coastal (more urbanised) states, which is higher than inland, more rural states. Wealthy families can aford to spend more on children education and pay for expensive college tuition fees, therefore in relatively richer areas, more students take the test.&lt;/p&gt;
+
+&lt;h4 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h4&gt;
+
+&lt;p&gt;As a conclusion we wanted to go a bit beyond that provided data and look at the evolution of average scores over the year.&lt;/p&gt;
+
+&lt;p&gt;For this we obtained the score evolution between 1972 and 2016 from wikipedia.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/evol.png&quot; alt=&quot;Evolution&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;What the data show us is that in the seventies and eighties, average verbal score was consistently higher than the math score.
+But there is a turning point in 1990, where math results exceeds verbal and this remains true throughout the following three decades.&lt;/p&gt;
+
+&lt;p&gt;Also there appears to be cycles, with scores decreasing over the seventies, increasing again (math) or staying flat (verbal) from 1980 to 2005, and then decreasing again since 2005.&lt;/p&gt;</content><author><name>Gregory Vial</name></author><summary type="html">About SAT scores
+The SAT is an english, paper-based standardized test widely used for college admissions in the United States. It consists of 3 parts: math, verbal and essay.</summary></entry></feed>
