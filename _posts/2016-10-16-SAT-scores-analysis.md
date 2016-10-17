@@ -6,7 +6,7 @@ Categories: GeneralAssemblyProject
 Tag: SAT, EDA
 ---
 
-### About SAT scores
+#### About SAT scores
 The SAT is an english, paper-based standardized test widely used for college admissions in the United States. It consists of 3 parts: math, verbal and essay.
 
 Grading works as follows: 200–800 (in 10-point increments) on each of math and verbal.
