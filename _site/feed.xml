@@ -3,8 +3,8 @@
 	<channel>
 		<title>Data Salience</title>
 		<description>This blogs is all about Data Science!</description>		
-		<link>https://gregvial.github.io</link>
-		<atom:link href="https://gregvial.github.io/feed.xml" rel="self" type="application/rss+xml" />
+		<link>http://localhost:4000</link>
+		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>Analysing SAT scores across the US</title>
@@ -16,8 +16,8 @@
 </description>
 				
 				<pubDate>Sun, 16 Oct 2016 00:00:00 +0100</pubDate>
-				<link>https://gregvial.github.io/2016/10/16/SAT-scores-analysis/</link>
-				<guid isPermaLink="true">https://gregvial.github.io/2016/10/16/SAT-scores-analysis/</guid>
+				<link>http://localhost:4000/2016/10/16/SAT-scores-analysis/</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/10/16/SAT-scores-analysis/</guid>
 			</item>
 		
 	</channel>
