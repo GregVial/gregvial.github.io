@@ -52,4 +52,4 @@ Other considerations:
 ### References
 <a href="https://en.wikipedia.org/wiki/Data_cleansing">Data cleansing (Wikipedia)</a>
 
-<a href="file:///C:/Users/greg_/Downloads/0-submission.pdf">Tidy data (Journal of Statistical Software</a>
+<a href="http://vita.had.co.nz/papers/tidy-data.pdf">Tidy data (Journal of Statistical Software)</a>
