@@ -7,6 +7,20 @@
 		<atom:link href="https://gregvial.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>White paper about the philosophy of 'Clean Data'</title>
+				        
+				
+					<description>&lt;h3 id=&quot;motivation&quot;&gt;Motivation&lt;/h3&gt;
+&lt;p&gt;It said that a proportion as large as 80% of data analysis is spent on cleaning the data to make it suitable for the analysis itself. This mandatory but low value-added activity diverts the analysts attention from activities that matter most: building efficient predictive models and providing insights to data that will help executives make sensitive business decisions.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Mon, 24 Oct 2016 00:00:00 +0100</pubDate>
+				<link>https://gregvial.github.io/2016/10/24/White-paper-data-cleaning/</link>
+				<guid isPermaLink="true">https://gregvial.github.io/2016/10/24/White-paper-data-cleaning/</guid>
+			</item>
+		
+			<item>
 				<title>Year 2000 billboard songs analysis</title>
 				        
 				
