@@ -45,9 +45,9 @@ The typical data cleaning process will include the following steps:
 * Post-processing and controlling: check the data is in the expected format. If not, loop back to the first step.
 
 ### Other considerations
-Other considerations:
-* It is essential to consider reproducibility of any of the cleaning steps performed. It is essential to enable others understand the process, reproduce your work and validate it. It may be useful to track down errors in results linked to inappropriate removal of outliers or impute of missing values, or instance.
-* In general it must be kept in mind that the first step to high data quality is corporate culture and processes. The better input quality, the less cleansing required, and the better output.
+The following are best practices that you should consider implementing
+* It is essential to consider reproducibility of any of the cleaning steps performed. It enables others understand the process, reproduce your work and validate it. It may be useful to track down errors in results linked to inappropriate removal of outliers or impute of missing values, or instance.
+* In general it must be kept in mind that the first step to high data quality is corporate culture and processes. Clean data is not only a data analyst task, it is down to the whole organisation to enable it. The better input quality, the less cleansing required, and the better output.
 
 ### References
 <a href="https://en.wikipedia.org/wiki/Data_cleansing">Data cleansing (Wikipedia)</a>

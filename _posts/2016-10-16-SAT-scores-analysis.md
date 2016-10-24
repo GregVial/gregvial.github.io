@@ -32,7 +32,7 @@ We may also ask ourselves how verbal and math tests correlate to each other, if 
 
 ![MathVerbal]({{ site.url }}/assets/MathVerbal.png)
 
-We can clearly see a very strong positive correlation between the math and verbal grades, i.e. in every states but one, the math score goes up witht he verbal score, and vice versa.
+We can clearly see a very strong positive correlation between the math and verbal grades, i.e. in every states but one, the math score goes up with the verbal score, and vice versa.
 
 One possible interpretation is that in average students are usuly equaly good for both math and verbal. Those scoring high in one will score high in the other as well, and likewise those scoring low in one might score low in the other.
 This interpretation would need more data to be supported as their might be other reasons explaining this correlation.

@@ -25,7 +25,7 @@ Some of the questions we may want to answer are:
 * is there a particular length that most succesful songs have in common?
 * is there a particular month best suited to enter the charts to reach the top position?
 * how long do songs remain at the top of the charts?
-* how long do songs remain in the chars, regardless of their ranking?
+* how long do songs remain in the charts, regardless of their ranking?
 * how long does it take for a song to reach its peak ranking?
 
 In the remainder of this article, we will be searching for answers to these questions
