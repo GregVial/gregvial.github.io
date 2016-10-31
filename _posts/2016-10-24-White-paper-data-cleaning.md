@@ -9,7 +9,7 @@ Tag: whitepaper, datacleaning
 ### Motivation
 It said that a proportion as large as 80% of data analysis is spent on cleaning the data to make it suitable for the analysis itself. This mandatory but low value-added activity diverts the analysts attention from activities that matter most: building efficient predictive models and providing insights to data that will help executives make sensitive business decisions.
 
-This paper describes the two essential steps of data cleaning called data scrubbing (work on content) and data tidying (work on structure. The purpose is to help perform these activities with maximum awareness of what they entail, but also reduce time spent on them.
+This paper describes the two essential steps of data cleaning called data scrubbing (work on content) and data tidying (work on structure). The purpose is to help perform these activities with maximum awareness of what they entail, but also reduce time spent on them.
 
 ### Data scrubbing
 Data scrubbing focuses on the content of the data.
@@ -23,7 +23,7 @@ To be considered "clean", the data must comply to the following rules:
 * Uniformity: degree to which a set data measures are specified using the same units of measure. Typically the use of miles vs kilometers or degrees farenheit vs celcius.
 
 ### Data tidying
-Data tidying is a standard way of organizing your data so it is easy to process, analyse and link to other data.
+Data tidying is a standard way of organizing your data so it is easy to process, analyse and link to other data. So the focus is the structure, not the content.
 
 The expected characteristics of a dataset after data tidying are the following:
 * Each variable forms a column

@@ -7,6 +7,21 @@
 		<atom:link href="https://gregvial.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Why you should watch Andrew Ng's Machine Learning course</title>
+				        
+				
+					<description>&lt;h3 id=&quot;where-to-start-your-data-science-learning-journey&quot;&gt;Where to start your data science learning journey?&lt;/h3&gt;
+&lt;p&gt;Anyone interested in learning data science should at least once watch Andrew Ng’s Machine Learning course on &lt;a href=&quot;https://www.coursera.org/learn/machine-learning&quot;&gt;Coursera&lt;/a&gt;.
+Amongst all the training material available on the web, this is the one I find by far the most remarkable to get started in this field.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Fri, 28 Oct 2016 00:00:00 +0100</pubDate>
+				<link>https://gregvial.github.io/2016/10/28/why-watch-andrew-ng-videos/</link>
+				<guid isPermaLink="true">https://gregvial.github.io/2016/10/28/why-watch-andrew-ng-videos/</guid>
+			</item>
+		
+			<item>
 				<title>White paper about the philosophy of 'Clean Data'</title>
 				        
 				
@@ -21,7 +36,7 @@
 			</item>
 		
 			<item>
-				<title>Year 2000 billboard songs analysis</title>
+				<title>GA Project week 2 - Year 2000 billboard songs analysis</title>
 				        
 				
 					<description>&lt;h4 id=&quot;about-billboard&quot;&gt;About billboard&lt;/h4&gt;
@@ -35,7 +50,7 @@
 			</item>
 		
 			<item>
-				<title>Analysing SAT scores across the US</title>
+				<title>GA Project week 1 - Analysing SAT scores across the US</title>
 				        
 				
 					<description>&lt;h4 id=&quot;about-sat-scores&quot;&gt;About SAT scores&lt;/h4&gt;

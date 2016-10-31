@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Analysing SAT scores across the US
+title: GA Project week 1 - Analysing SAT scores across the US
 author: Gregory Vial
 Categories: GeneralAssemblyProject
 Tag: SAT, EDA
