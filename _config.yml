@@ -3,9 +3,9 @@ title: Data Salience
 name: Data Salience
 header-img: img/home-bg.jpg
 email: me@gregvi.al
-description: "This blogs is all about Data Science!"
+description: "Data Science and the intuitions behind it"
 baseurl: ""
-url: "https://gregvial.github.io"
+url: "http://ds.gregvi.al"
 #twitter_username: SBootstrap
 github_username:  GregVial
 #facebook_username:  StartBootstrap
@@ -14,7 +14,7 @@ email_username:  me@gregvi.al
 
 # Google Analytics
 # To enable google analytics, uncomment below line with a valid Google Tracking ID
-# google_tracking_id:
+google_tracking_id: UA-86523398-1
 
 # Build settings
 markdown: kramdown
