@@ -27,6 +27,6 @@ This makes a huge difference. If every teacher in the world was to get into the 
 So in essence, Andrew Ng teaches you machine learning, but if you are interested in teaching, you definitely have a lot to learn from him as well through these videos!
 
 ### More great material
-As a side note, another very good set of <a href="https://www.coursera.org/learn/machine-learning">videos</a> I recommend watching is the ones recorded by Hastie and Tibshirani based on their book "An Introduction to Statistical Learning". They are also very clear, cover slightly different topics, and they have quite a bit of humor which I particularly enjoy (yes science can be fun).
+As a side note, another very good set of <a href="https://www.r-bloggers.com/in-depth-introduction-to-machine-learning-in-15-hours-of-expert-videos/">videos</a> I recommend watching is the ones recorded by Hastie and Tibshirani based on their book "An Introduction to Statistical Learning". They are also very clear, cover slightly different topics, and they have quite a bit of humor which I particularly enjoy (yes science can be fun).
 
 ### Happy learning journey!
