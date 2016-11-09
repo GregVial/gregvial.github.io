@@ -1,26 +1,29 @@
 ---
 layout: post
-title: Intuition - Machine Learning
+title: What is Machine Learning?
 author: Gregory Vial
 Categories: DataScience
 Tag: Machine Learning, model 
 ---
 
-Since I decided to move to data science, I have been asked many times what this is about. As often with jobs not well known to the public, it is hard to describe in simple words that people understand and so they can relate the field to some experience or product they are famliar with.
+Since I decided to become a data scientist, I have been asked many times what data science is about and what it means to be data scientist.
+
+As often with jobs not well known to the public, it is hard to describe in simple words that people understand and so they can relate the field to some experience or product they are famliar with.
 
 In this post, I will talk about machine learning, the area I personnally find most interesting in data science, and I will then present a few concrete examples of its applications.
 
 
-### Motivating (simple) example: calculating the bar bill
-Let's set the context. You want to design a computer program that will calculate your bar bill based on the number of beers you ordered. Let's assume each pint costs 5£ (yes, life in London in expensive).
+### Motivating (simple) example: calculating the pub bill
+Let's set the context. You want to design a computer program that will calculate your pub bill based on the number of beers you ordered. Let's assume each pint costs 5£ (yes, life in London in expensive).
 
 #### Traditional programming
 In traditional programming, you would tell the computer that:
 * a pint costs 5£
-* you drunk 3 pints (or 5, or 10)
+* the formula to calculate the the total cost is <5 * number of pints>
 
-And then you would ask it:
-* give me the total price using the formula <5 * number of pints>
+And then you would input the number of pints you drunk and let the computer do the math.
+
+For instance if you drunk 3 pints, the computer will calculate 5*3 and return 15. Easy :)
 
 #### Machine learning
 In machine learning, the process is a bit different.
@@ -47,11 +50,13 @@ You start with the _learning_ phase:
   </tr>
 </table>
 
-* you  tell the computer: go figure out the best formula to predict my total bill
+* you  tell the computer: go figure out the best formula to predict my total bill (using a learning method you will suggest, many exists but this is not the topic of this post)
 
 Then you move to the _prediction_ phase:
 * you input how many pints you drunk
-* you ask the machine to calculate the bill based on a formula <"assumed price of pint" * number of pints>
+* you ask the machine to calculate the bill based on the magic formula it came up with.
+
+If the data scientist suggested the right learning method, the program will have figured that a pint costs 5£ and also return 15£ total bill for 3 pints.
 
 As you can see the main difference is that in the first case, someone has already figured out the relationship between the number of pints and the total price, whereas in machine learning, you ask the computer to find out by itself.
 
@@ -71,9 +76,15 @@ In this case, the computer scientist will ask the compute to fit a straight line
 ![PintsPrice2]({{ site.url }}/assets/pints_price2.png)
 
 
-Now, to calculate the cost of a new number of pints that we didn't have in our training set, the data scientist will have to put a new cross on the line , at the right horizontal position corresponding to this new number of pints, and read the associated price on the vertical axis.
+Now, to calculate the cost of a new number of pints that we didn't have in our training set, the computer will do something equivalent to putting a new cross on the line at the right horizontal position corresponding to this new number of pints, and read the associated price on the vertical axis.
 
-Of course there are many different learning algorithm, and fitting a straight line is the most simple of them, but in essence this is how it works.
+For instance, for 8 pints:
+
+![PintsPrice3]({{ site.url }}/assets/pints_price3.png)
+
+It's easy to read that the price is 40£.
+
+Of course there are many different learning algorithm, and fitting a straight line is the most simple of them, but in essence this is how it works. 
 
 ### Some real life examples
 
@@ -133,4 +144,4 @@ My bet is that in the future governments will issue policies forcing companies o
 
 <a href="https://www.kaggle.com/c/digit-recognizer">Digit recognizer</a>
 
-<a href="http://www.lemonde.fr/campus/article/2016/09/19/admission-post-le-ministere-somme-d-apporter-transparence-et-legalite-a-la-plateforme_4999798_4401467.html">Admission post-bac (in french)</a>
+<a href="http://www.lemonde.fr/campus/article/2016/09/19/admission-post-le-ministere-somme-d-apporter-transparence-et-legalite-a-la-plateforme_4999798_4401467.html">Artical from Le Monde 2016, September 19th (in french)</a>

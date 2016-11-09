@@ -12,9 +12,9 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="http://ds.gregvi.alfavicon.ico">
 
-    <title>Intuition - Machine Learning - Data Salience</title>
+    <title>What is Machine Learning? - Data Salience</title>
 
-    <link rel="canonical" href="http://ds.gregvi.al/2016/11/07/Intuition-Machine-Learning/">
+    <link rel="canonical" href="http://ds.gregvi.al/2016/11/09/What-is-Machine-Learning/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -91,9 +91,9 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Intuition - Machine Learning</h1>
+                    <h1>What is Machine Learning?</h1>
                     
-                    <span class="meta">Posted by Gregory Vial on November 7, 2016</span>
+                    <span class="meta">Posted by Gregory Vial on November 9, 2016</span>
                 </div>
             </div>
         </div>
@@ -106,24 +106,25 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-				<p>Since I decided to move to data science, I have been asked many times what this is about. As often with jobs not well known to the public, it is hard to describe in simple words that people understand and so they can relate the field to some experience or product they are famliar with.</p>
+				<p>Since I decided to become a data scientist, I have been asked many times what data science is about and what it means to be data scientist.</p>
+
+<p>As often with jobs not well known to the public, it is hard to describe in simple words that people understand and so they can relate the field to some experience or product they are famliar with.</p>
 
 <p>In this post, I will talk about machine learning, the area I personnally find most interesting in data science, and I will then present a few concrete examples of its applications.</p>
 
-<h3 id="motivating-simple-example-calculating-the-bar-bill">Motivating (simple) example: calculating the bar bill</h3>
-<p>Let’s set the context. You want to design a computer program that will calculate your bar bill based on the number of beers you ordered. Let’s assume each pint costs 5£ (yes, life in London in expensive).</p>
+<h3 id="motivating-simple-example-calculating-the-pub-bill">Motivating (simple) example: calculating the pub bill</h3>
+<p>Let’s set the context. You want to design a computer program that will calculate your pub bill based on the number of beers you ordered. Let’s assume each pint costs 5£ (yes, life in London in expensive).</p>
 
 <h4 id="traditional-programming">Traditional programming</h4>
 <p>In traditional programming, you would tell the computer that:</p>
 <ul>
   <li>a pint costs 5£</li>
-  <li>you drunk 3 pints (or 5, or 10)</li>
+  <li>the formula to calculate the the total cost is &lt;5 * number of pints&gt;</li>
 </ul>
 
-<p>And then you would ask it:</p>
-<ul>
-  <li>give me the total price using the formula &lt;5 * number of pints&gt;</li>
-</ul>
+<p>And then you would input the number of pints you drunk and let the computer do the math.</p>
+
+<p>For instance if you drunk 3 pints, the computer will calculate 5*3 and return 15. Easy :)</p>
 
 <h4 id="machine-learning">Machine learning</h4>
 <p>In machine learning, the process is a bit different.</p>
@@ -153,14 +154,16 @@
 </table>
 
 <ul>
-  <li>you  tell the computer: go figure out the best formula to predict my total bill</li>
+  <li>you  tell the computer: go figure out the best formula to predict my total bill (using a learning method you will suggest, many exists but this is not the topic of this post)</li>
 </ul>
 
 <p>Then you move to the <em>prediction</em> phase:</p>
 <ul>
   <li>you input how many pints you drunk</li>
-  <li>you ask the machine to calculate the bill based on a formula &lt;”assumed price of pint” * number of pints&gt;</li>
+  <li>you ask the machine to calculate the bill based on the magic formula it came up with.</li>
 </ul>
+
+<p>If the data scientist suggested the right learning method, the program will have figured that a pint costs 5£ and also return 15£ total bill for 3 pints.</p>
 
 <p>As you can see the main difference is that in the first case, someone has already figured out the relationship between the number of pints and the total price, whereas in machine learning, you ask the computer to find out by itself.</p>
 
@@ -178,7 +181,13 @@
 
 <p><img src="http://ds.gregvi.al/assets/pints_price2.png" alt="PintsPrice2" /></p>
 
-<p>Now, to calculate the cost of a new number of pints that we didn’t have in our training set, the data scientist will have to put a new cross on the line , at the right horizontal position corresponding to this new number of pints, and read the associated price on the vertical axis.</p>
+<p>Now, to calculate the cost of a new number of pints that we didn’t have in our training set, the computer will do something equivalent to putting a new cross on the line at the right horizontal position corresponding to this new number of pints, and read the associated price on the vertical axis.</p>
+
+<p>For instance, for 8 pints:</p>
+
+<p><img src="http://ds.gregvi.al/assets/pints_price3.png" alt="PintsPrice3" /></p>
+
+<p>It’s easy to read that the price is 40£.</p>
 
 <p>Of course there are many different learning algorithm, and fitting a straight line is the most simple of them, but in essence this is how it works.</p>
 
@@ -240,7 +249,7 @@ If you picked the wrong training algorithm, or you don’t have enough data to t
 
 <p><a href="https://www.kaggle.com/c/digit-recognizer">Digit recognizer</a></p>
 
-<p><a href="http://www.lemonde.fr/campus/article/2016/09/19/admission-post-le-ministere-somme-d-apporter-transparence-et-legalite-a-la-plateforme_4999798_4401467.html">Admission post-bac (in french)</a></p>
+<p><a href="http://www.lemonde.fr/campus/article/2016/09/19/admission-post-le-ministere-somme-d-apporter-transparence-et-legalite-a-la-plateforme_4999798_4401467.html">Artical from Le Monde 2016, September 19th (in french)</a></p>
 
 
                 <hr>
@@ -298,7 +307,7 @@ If you picked the wrong training algorithm, or you don’t have enough data to t
                     
                     
                     <li>
-                        <a href="mailto:me@gregvi.al">
+                        <a href="mailto:ds@gregvi.al">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>

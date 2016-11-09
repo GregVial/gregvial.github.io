@@ -7,16 +7,16 @@
 		<atom:link href="http://ds.gregvi.al/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Intuition - Machine Learning</title>
+				<title>What is Machine Learning?</title>
 				        
 				
-					<description>&lt;p&gt;Since I decided to move to data science, I have been asked many times what this is about. As often with jobs not well known to the public, it is hard to describe in simple words that people understand and so they can relate the field to some experience or product they are famliar with.&lt;/p&gt;
+					<description>&lt;p&gt;Since I decided to become a data scientist, I have been asked many times what data science is about and what it means to be data scientist.&lt;/p&gt;
 
 </description>
 				
-				<pubDate>Mon, 07 Nov 2016 00:00:00 +0000</pubDate>
-				<link>http://ds.gregvi.al/2016/11/07/Intuition-Machine-Learning/</link>
-				<guid isPermaLink="true">http://ds.gregvi.al/2016/11/07/Intuition-Machine-Learning/</guid>
+				<pubDate>Wed, 09 Nov 2016 00:00:00 +0000</pubDate>
+				<link>http://ds.gregvi.al/2016/11/09/What-is-Machine-Learning/</link>
+				<guid isPermaLink="true">http://ds.gregvi.al/2016/11/09/What-is-Machine-Learning/</guid>
 			</item>
 		
 			<item>
