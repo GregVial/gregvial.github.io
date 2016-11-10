@@ -3,8 +3,21 @@
 	<channel>
 		<title>Data Salience</title>
 		<description>Data Science and the intuitions behind it</description>		
-		<link>http://localhost:4000</link>
-		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+		<link>http://ds.gregvi.al</link>
+		<atom:link href="http://ds.gregvi.al/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>GA Project week 4 - How much is worth a data scientist?</title>
+				        
+				
+					<description>&lt;p&gt;How much is worth a data scientist?&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Thu, 10 Nov 2016 00:00:00 +0000</pubDate>
+				<link>http://ds.gregvi.al/2016/11/10/How-much-worth-data-scientist/</link>
+				<guid isPermaLink="true">http://ds.gregvi.al/2016/11/10/How-much-worth-data-scientist/</guid>
+			</item>
 		
 			<item>
 				<title>What is Machine Learning?</title>
@@ -15,8 +28,8 @@
 </description>
 				
 				<pubDate>Wed, 09 Nov 2016 00:00:00 +0000</pubDate>
-				<link>http://localhost:4000/2016/11/09/What-is-Machine-Learning/</link>
-				<guid isPermaLink="true">http://localhost:4000/2016/11/09/What-is-Machine-Learning/</guid>
+				<link>http://ds.gregvi.al/2016/11/09/What-is-Machine-Learning/</link>
+				<guid isPermaLink="true">http://ds.gregvi.al/2016/11/09/What-is-Machine-Learning/</guid>
 			</item>
 		
 			<item>
@@ -30,8 +43,8 @@ Amongst all the training material available on the web, this is the one I find b
 </description>
 				
 				<pubDate>Fri, 28 Oct 2016 00:00:00 +0100</pubDate>
-				<link>http://localhost:4000/2016/10/28/why-watch-andrew-ng-videos/</link>
-				<guid isPermaLink="true">http://localhost:4000/2016/10/28/why-watch-andrew-ng-videos/</guid>
+				<link>http://ds.gregvi.al/2016/10/28/why-watch-andrew-ng-videos/</link>
+				<guid isPermaLink="true">http://ds.gregvi.al/2016/10/28/why-watch-andrew-ng-videos/</guid>
 			</item>
 		
 			<item>
@@ -44,8 +57,8 @@ Amongst all the training material available on the web, this is the one I find b
 </description>
 				
 				<pubDate>Mon, 24 Oct 2016 00:00:00 +0100</pubDate>
-				<link>http://localhost:4000/2016/10/24/White-paper-data-cleaning/</link>
-				<guid isPermaLink="true">http://localhost:4000/2016/10/24/White-paper-data-cleaning/</guid>
+				<link>http://ds.gregvi.al/2016/10/24/White-paper-data-cleaning/</link>
+				<guid isPermaLink="true">http://ds.gregvi.al/2016/10/24/White-paper-data-cleaning/</guid>
 			</item>
 		
 			<item>
@@ -58,8 +71,8 @@ Amongst all the training material available on the web, this is the one I find b
 </description>
 				
 				<pubDate>Sun, 23 Oct 2016 00:00:00 +0100</pubDate>
-				<link>http://localhost:4000/2016/10/23/2000-billboard-songs/</link>
-				<guid isPermaLink="true">http://localhost:4000/2016/10/23/2000-billboard-songs/</guid>
+				<link>http://ds.gregvi.al/2016/10/23/2000-billboard-songs/</link>
+				<guid isPermaLink="true">http://ds.gregvi.al/2016/10/23/2000-billboard-songs/</guid>
 			</item>
 		
 			<item>
@@ -72,8 +85,8 @@ Amongst all the training material available on the web, this is the one I find b
 </description>
 				
 				<pubDate>Sun, 16 Oct 2016 00:00:00 +0100</pubDate>
-				<link>http://localhost:4000/2016/10/16/SAT-scores-analysis/</link>
-				<guid isPermaLink="true">http://localhost:4000/2016/10/16/SAT-scores-analysis/</guid>
+				<link>http://ds.gregvi.al/2016/10/16/SAT-scores-analysis/</link>
+				<guid isPermaLink="true">http://ds.gregvi.al/2016/10/16/SAT-scores-analysis/</guid>
 			</item>
 		
 	</channel>

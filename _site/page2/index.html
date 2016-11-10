@@ -12,9 +12,9 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="http://ds.gregvi.alfavicon.ico">
 
-    <title>White paper about the philosophy of 'Clean Data' - Data Salience</title>
+    <title>Data Salience</title>
 
-    <link rel="canonical" href="http://ds.gregvi.al/2016/10/24/White-paper-data-cleaning/">
+    <link rel="canonical" href="http://ds.gregvi.al/page2/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -85,105 +85,52 @@
 </nav>
 
 
-    <!-- Post Header -->
+    <!-- Page Header -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>White paper about the philosophy of 'Clean Data'</h1>
-                    
-                    <span class="meta">Posted by Gregory Vial on October 24, 2016</span>
+                <div class="site-heading">
+                    <h1>Data Salience</h1>
+                    <hr class="small">
+                    <span class="subheading">Data Science and the intuitions behind it</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Main Content -->
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+			
+<div class="post-preview">
+    <a href="/2016/10/16/SAT-scores-analysis/">
+        <h2 class="post-title">            GA Project week 1 - Analysing SAT scores across the US
+        </h2>
+        
+    </a>
+    <p class="post-meta">Posted by Gregory Vial on October 16, 2016</p>
+</div>
+<hr>
 
-				<h3 id="motivation">Motivation</h3>
-<p>It said that a proportion as large as 80% of data analysis is spent on cleaning the data to make it suitable for the analysis itself. This mandatory but low value-added activity diverts the analysts attention from activities that matter most: building efficient predictive models and providing insights to data that will help executives make sensitive business decisions.</p>
 
-<p>This paper describes the two essential steps of data cleaning called data scrubbing (work on content) and data tidying (work on structure). The purpose is to help perform these activities with maximum awareness of what they entail, but also reduce time spent on them.</p>
+<!-- Pager -->
 
-<h3 id="data-scrubbing">Data scrubbing</h3>
-<p>Data scrubbing focuses on the content of the data.
-Its aim is to detect and correct (or remove) missing, corrupted or inaccurate data.</p>
-
-<p>To be considered “clean”, the data must comply to the following rules:</p>
-<ul>
-  <li>Validity: data complies to a set of constrains, such as data type (is an integer, a string, a boolean etc), range (appropriate categorical variable such as Female or Male), mandatory (no essential value missing), unique (in case of a table key, such as an order number or a client ID) etc</li>
-  <li>Accuracy: degree of comformity of a measure to a standard - this is usually difficult to achieve through data cleaning as it may require to access and validate data sources</li>
-  <li>Completeness: degree to which all required measures are known. When essential values are missing, to some extent one can use data imputing to fill the gaps, however this must be done taking into considerations the impact on the final results.</li>
-  <li>Consistency: degree to which a set of measures are equivalent across systems. Do we use the same ID to track a customer across various systems? Am I using the same categorical variables to capture the customer sex: ‘F’ and ‘M’ in one system and ‘Female’ and ‘Male’ in another could lead to inconsistencies.</li>
-  <li>Uniformity: degree to which a set data measures are specified using the same units of measure. Typically the use of miles vs kilometers or degrees farenheit vs celcius.</li>
+<ul class="pager">
+    
+    <li class="previous">
+        <a href="/">&larr; Newer Posts</a>
+    </li>
+    
+    
 </ul>
 
-<h3 id="data-tidying">Data tidying</h3>
-<p>Data tidying is a standard way of organizing your data so it is easy to process, analyse and link to other data. So the focus is the structure, not the content.</p>
 
-<p>The expected characteristics of a dataset after data tidying are the following:</p>
-<ul>
-  <li>Each variable forms a column</li>
-  <li>Each observation forms a row</li>
-  <li>Each table stores information about one and only one observational unit</li>
-</ul>
-
-<p>Typically, data before tyding will present one or several of the following characteritics that need to be fixed:</p>
-<ul>
-  <li>column headers are values, not variable names</li>
-  <li>multiple variables are stored in one column</li>
-  <li>variables are stored in both rows and columns</li>
-  <li>multiple types of observational unit are stored in the same table</li>
-  <li>a single observational unit is stored in multiple tables</li>
-</ul>
-
-<h3 id="process">Process</h3>
-<p>The typical data cleaning process will include the following steps:</p>
-<ul>
-  <li>Data auditing: detect anomalies. This can be done through statistical methods, manual checks, automated verifications…</li>
-  <li>Workflow specification: design a sequence of activities required to remove or correct</li>
-  <li>Workflow execution: once workflow is designed and validated, develop appropriate code and execute it</li>
-  <li>Post-processing and controlling: check the data is in the expected format. If not, loop back to the first step.</li>
-</ul>
-
-<h3 id="other-considerations">Other considerations</h3>
-<p>The following are best practices that you should consider implementing</p>
-<ul>
-  <li>It is essential to consider reproducibility of any of the cleaning steps performed. It enables others understand the process, reproduce your work and validate it. It may be useful to track down errors in results linked to inappropriate removal of outliers or impute of missing values, or instance.</li>
-  <li>In general it must be kept in mind that the first step to high data quality is corporate culture and processes. Clean data is not only a data analyst task, it is down to the whole organisation to enable it. The better input quality, the less cleansing required, and the better output.</li>
-</ul>
-
-<h3 id="references">References</h3>
-<p><a href="https://en.wikipedia.org/wiki/Data_cleansing">Data cleansing (Wikipedia)</a></p>
-
-<p><a href="http://vita.had.co.nz/papers/tidy-data.pdf">Tidy data (Journal of Statistical Software)</a></p>
-
-
-                <hr>
-
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/2016/10/23/2000-billboard-songs/" data-toggle="tooltip" data-placement="top" title="GA Project week 2 - Year 2000 billboard songs analysis">&larr; Previous Post</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/2016/10/28/why-watch-andrew-ng-videos/" data-toggle="tooltip" data-placement="top" title="Why you should watch Andrew Ng's Machine Learning course">Next Post &rarr;</a>
-                    </li>
-                    
-                </ul>
-
-            </div>
-        </div>
-    </div>
-</article>
+		</div>
+	</div>
+</div>
 
 <hr>
 
