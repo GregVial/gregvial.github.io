@@ -185,7 +185,7 @@ Finally I want to present the companies hiring the highest number of data scient
       </tr>
 </table>
 
-After checking this list, I hope no one will still believe that data science is a tech company thing. Yes, Amazon, Microsoft and Google are in the top 10, but you also have pharmaceutical, finance, aeronotics etc.
+After checking this list, I hope no one will still believe that data science is a tech company thing. Yes, Amazon, Microsoft and Google are in the top 20, but you also have pharmaceutical, finance, aeronautics etc.
 
 ### Additional comments
 In this project I experimented the python package "vincent" which helps draw great maps, unfortunately I was not able to find (yet) how to print the scale. Apologies for not complying with this best practice for this post!
