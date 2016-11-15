@@ -87,7 +87,7 @@ Let's focus on this last box. Out of those who paid more than $52, 77 survived a
 
 Yet if you look at those who paid less than $52, 149 survived and 344 died. That's only a 30% survival rate.
 
-What this tells us is that if you paid a higher fare, you had many more chances to survive. Ok, fair enough, nothing groundbreaking, those who watched the movie new already!
+What this tells us is that if you paid a higher fare, you had many more chances to survive. Ok, fair enough, nothing groundbreaking, those who watched the movie knew already!
 
 But you can continue analysing the next boxes to understand what impacted chances of survival. I won't go into details, but you will see that the main determinants identified by the model are fare and age (looks like children had a better survival rate, apparently the rule "women and children first" prevailed). Number of siblings also appears in the tree but only for 5 individuals, so it may not be so relevant.
 
@@ -96,7 +96,7 @@ But you can continue analysing the next boxes to understand what impacted chance
 Our study has shown that with a limited set of information about Titanic passengers, we were able to predict with an accuracy of 78% whether they survived or not the shipwreck.
 
 Out of 4 algorithms studied, 2 have been ruled out due to poor performances, and 2 have been retained and can be used based on the type of results we want to achieve:
-* Logistic regression tends to be better at predicting that someone survived if it actually survived
+* Logistic regression tends to be better at predicting that someone survived if he actually survived
 * Decision tree tends to be better at capturing the highest proportion of survivors
 
 
