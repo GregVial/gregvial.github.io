@@ -7,6 +7,29 @@
 		<atom:link href="http://ds.gregvi.al/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Titanic Notebook test</title>
+				        
+				
+					<description>&lt;p&gt;```python
+import numpy as np
+import pandas as pd 
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split, cross_val_score,KFold
+from sklearn import metrics
+import brewer2mpl
+from sklearn import tree
+from sklearn.neighbors import KNeighborsClassifier
+from sqlalchemy import create_engine&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Thu, 17 Nov 2016 00:00:00 +0000</pubDate>
+				<link>http://ds.gregvi.al/project1/2016/11/17/Sahoopa-test/</link>
+				<guid isPermaLink="true">http://ds.gregvi.al/project1/2016/11/17/Sahoopa-test/</guid>
+			</item>
+		
+			<item>
 				<title>GA Project week 5 - Who survived the Titanic shipwreck?</title>
 				        
 				
