@@ -3,30 +3,21 @@
 	<channel>
 		<title>Data Salience</title>
 		<description>Data Science and the intuitions behind it</description>		
-		<link>http://ds.gregvi.al</link>
-		<atom:link href="http://ds.gregvi.al/feed.xml" rel="self" type="application/rss+xml" />
+		<link>http://localhost:4000</link>
+		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Titanic Notebook test</title>
+				<title>Smoking is good, p&lt;0.05</title>
 				        
 				
-					<description>&lt;p&gt;```python
-import numpy as np
-import pandas as pd 
-import matplotlib.pyplot as plt
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split, cross_val_score,KFold
-from sklearn import metrics
-import brewer2mpl
-from sklearn import tree
-from sklearn.neighbors import KNeighborsClassifier
-from sqlalchemy import create_engine&lt;/p&gt;
+					<description>&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Much has been said about the Simpson’s paradox, the famous statistic paradox that leads to reversing association when adding or removing a covariate.&lt;/p&gt;
 
 </description>
 				
-				<pubDate>Thu, 17 Nov 2016 00:00:00 +0000</pubDate>
-				<link>http://ds.gregvi.al/project1/2016/11/17/Sahoopa-test/</link>
-				<guid isPermaLink="true">http://ds.gregvi.al/project1/2016/11/17/Sahoopa-test/</guid>
+				<pubDate>Sat, 19 Nov 2016 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/2016/11/19/smoking-is-good/</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/11/19/smoking-is-good/</guid>
 			</item>
 		
 			<item>
@@ -39,8 +30,8 @@ from sqlalchemy import create_engine&lt;/p&gt;
 </description>
 				
 				<pubDate>Mon, 14 Nov 2016 00:00:00 +0000</pubDate>
-				<link>http://ds.gregvi.al/2016/11/14/Titanic-Survival/</link>
-				<guid isPermaLink="true">http://ds.gregvi.al/2016/11/14/Titanic-Survival/</guid>
+				<link>http://localhost:4000/2016/11/14/Titanic-Survival/</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/11/14/Titanic-Survival/</guid>
 			</item>
 		
 			<item>
@@ -52,8 +43,8 @@ from sqlalchemy import create_engine&lt;/p&gt;
 </description>
 				
 				<pubDate>Thu, 10 Nov 2016 00:00:00 +0000</pubDate>
-				<link>http://ds.gregvi.al/2016/11/10/How-much-worth-data-scientist/</link>
-				<guid isPermaLink="true">http://ds.gregvi.al/2016/11/10/How-much-worth-data-scientist/</guid>
+				<link>http://localhost:4000/2016/11/10/How-much-worth-data-scientist/</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/11/10/How-much-worth-data-scientist/</guid>
 			</item>
 		
 			<item>
@@ -65,8 +56,8 @@ from sqlalchemy import create_engine&lt;/p&gt;
 </description>
 				
 				<pubDate>Wed, 09 Nov 2016 00:00:00 +0000</pubDate>
-				<link>http://ds.gregvi.al/2016/11/09/What-is-Machine-Learning/</link>
-				<guid isPermaLink="true">http://ds.gregvi.al/2016/11/09/What-is-Machine-Learning/</guid>
+				<link>http://localhost:4000/2016/11/09/What-is-Machine-Learning/</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/11/09/What-is-Machine-Learning/</guid>
 			</item>
 		
 			<item>
@@ -80,8 +71,8 @@ Amongst all the training material available on the web, this is the one I find b
 </description>
 				
 				<pubDate>Fri, 28 Oct 2016 00:00:00 +0100</pubDate>
-				<link>http://ds.gregvi.al/2016/10/28/why-watch-andrew-ng-videos/</link>
-				<guid isPermaLink="true">http://ds.gregvi.al/2016/10/28/why-watch-andrew-ng-videos/</guid>
+				<link>http://localhost:4000/2016/10/28/why-watch-andrew-ng-videos/</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/10/28/why-watch-andrew-ng-videos/</guid>
 			</item>
 		
 			<item>
@@ -94,8 +85,8 @@ Amongst all the training material available on the web, this is the one I find b
 </description>
 				
 				<pubDate>Mon, 24 Oct 2016 00:00:00 +0100</pubDate>
-				<link>http://ds.gregvi.al/2016/10/24/White-paper-data-cleaning/</link>
-				<guid isPermaLink="true">http://ds.gregvi.al/2016/10/24/White-paper-data-cleaning/</guid>
+				<link>http://localhost:4000/2016/10/24/White-paper-data-cleaning/</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/10/24/White-paper-data-cleaning/</guid>
 			</item>
 		
 			<item>
@@ -108,8 +99,8 @@ Amongst all the training material available on the web, this is the one I find b
 </description>
 				
 				<pubDate>Sun, 23 Oct 2016 00:00:00 +0100</pubDate>
-				<link>http://ds.gregvi.al/2016/10/23/2000-billboard-songs/</link>
-				<guid isPermaLink="true">http://ds.gregvi.al/2016/10/23/2000-billboard-songs/</guid>
+				<link>http://localhost:4000/2016/10/23/2000-billboard-songs/</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/10/23/2000-billboard-songs/</guid>
 			</item>
 		
 			<item>
@@ -122,8 +113,8 @@ Amongst all the training material available on the web, this is the one I find b
 </description>
 				
 				<pubDate>Sun, 16 Oct 2016 00:00:00 +0100</pubDate>
-				<link>http://ds.gregvi.al/2016/10/16/SAT-scores-analysis/</link>
-				<guid isPermaLink="true">http://ds.gregvi.al/2016/10/16/SAT-scores-analysis/</guid>
+				<link>http://localhost:4000/2016/10/16/SAT-scores-analysis/</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/10/16/SAT-scores-analysis/</guid>
 			</item>
 		
 	</channel>

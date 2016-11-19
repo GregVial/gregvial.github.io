@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Data Science and the intuitions behind it">
+    
+    <!-- <link rel="icon" type="image/x-icon" href="http://localhost:4000/favicon.ico"> -->
+    <!-- favicon -->
+    <link rel="shortcut icon" href="http://localhost:4000favicon.ico">
+
+    <title>Smoking is good, p<0.05 - Data Salience</title>
+
+    <link rel="canonical" href="http://localhost:4000/2016/11/19/smoking-is-good/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Data Salience" />
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Data Salience</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+				
+                <li>
+                    <a href="/about/">About</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/contact/">Contact</a>
+                </li>
+				
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading" style="padding: 30px 0">
+                    <h1>Smoking is good, p<0.05</h1>
+                    
+                    <span class="meta">Posted by Gregory Vial on November 19, 2016</span>	
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+	
+	
+		
+	
+
+<!-- Also Interesting -->
+
+
+
+	
+	
+	
+
+	
+	 
+	
+	
+	
+
+	
+	 
+	
+	
+	
+
+	
+	 
+	
+	
+	
+
+	
+	 
+	
+	
+	
+
+	
+	 
+	
+	
+	
+
+	
+	 
+	
+	
+	
+
+	
+	 
+	
+	
+	
+
+
+		</div>
+		</div>
+
+<!-- Post Content -->
+<style>
+img {
+	display:block;
+	max-width:  100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media only screen and (min-width: 1000px) {
+img {
+	-moz-transition:-moz-transform 0.5s ease-in; 
+	-webkit-transition:-webkit-transform 0.5s ease-in; 
+	-o-transition:-o-transform 0.5s ease-in;
+}
+img:active{
+	-moz-transform:scale(1.2); 
+	-webkit-transform:scale(1.2);
+	-o-transform:scale(1.2);
+}
+}
+
+@media only screen and (min-width: 1250px) {
+img {
+	-moz-transition:-moz-transform 0.5s ease-in; 
+	-webkit-transition:-webkit-transform 0.5s ease-in; 
+	-o-transition:-o-transform 0.5s ease-in;
+}
+img:active{
+	-moz-transform:scale(1.5); 
+	-webkit-transform:scale(1.5);
+	-o-transform:scale(1.5);
+}
+}
+
+@media only screen and (min-width: 1500px) {
+img {
+	-moz-transition:-moz-transform 0.5s ease-in; 
+	-webkit-transition:-webkit-transform 0.5s ease-in; 
+	-o-transition:-o-transform 0.5s ease-in;
+}
+img:active{
+	-moz-transform:scale(2); 
+	-webkit-transform:scale(2);
+	-o-transform:scale(2);
+}
+}
+</style>
+
+<article>
+    <div id="content" class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+<h2 id="introduction">Introduction</h2>
+<p>Much has been said about the Simpson’s paradox, the famous statistic paradox that leads to reversing association when adding or removing a covariate.</p>
+
+<p>My intention in this post is not to explain the paradox, as many have done it already before me, instead I just provide an illustration to set the context, and then I focus on how to forge data that leads to this paradox.</p>
+
+<p>This post is named after a very inspiring article by Jakob Cohen [1], explaining how the null hypothesis significance testing is misunderstood and misused, although it is the bread and butter of hundreds of thousands of statisticians around the world, including some of them internationaly renowned</p>
+
+<p>The post is also inspired by David Louapre’s <a href="https://sciencetonnante.wordpress.com/2013/04/29/le-paradoxe-de-simpson/">Science Etonnante (in french)</a> excellent blog post.</p>
+
+<h2 id="an-example-of-simpsons-paradox">An example of Simpson’s paradox</h2>
+<p>Let’s look at a real study performed in the seventies in a UK village [2]. The researchers surveyed woman, smoking and non smoking. They then reported the percentage of women still alive 20 years later.</p>
+
+<p>The result was the following:</p>
+
+<p><img src="/assets/smoking_original2.png" /></p>
+
+<p>The data shows that the mortality was lower amongst the smokers. How surprising! Something must have gone wrong.</p>
+
+<p>Indeed, if we refine the data and add a covariate, i.e. we now distinguish between classes of age, we see this:</p>
+
+<p><img src="/assets/smoking_original.png" /></p>
+
+<p>(smokers are in red, non smokers in pink)</p>
+
+<p>What we now observe is that mortality has generally been higher for the smokers than for the non smokers. Sounds more in line we what we expected, doesn’t it?</p>
+
+<p>So what happened? Well, the simpson’s paradox may happen when an important covariate (factor that has in influence on the result) is missing, and generally under specific circumpstances with unbalanced group sizes (non homogeneity).</p>
+
+<p>There are multiple examples of this paradox appearing in real life situation, including the famous UCI Berkeley students’ admissino discrimination case. At first glance, it appeared the admission ratio for male applicants was higher than that of female applicants (44% versus 35%). However, when splitting adding the major type as covariate, the results no longer showed any discrimination as the admission ratio was approximately similar for both male and females.</p>
+
+<h2 id="the-original-data">The original data</h2>
+
+<p>I got interested in forging data whilst studying linear regression. I worked on a small group project and wanted to come up with a striking example, which although it would have coefficients statistical coefficients woud lead to wrong conclusion.</p>
+
+<p>I started with the study mentionned above. The raw data is presented below</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Initialize environment</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Load the data from the original study</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"./smoking.data"</span><span class="p">,</span><span class="n">delim_whitespace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">data</span>
+</code></pre>
+</div>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>age</th>
+      <th>smoker</th>
+      <th>alive</th>
+      <th>dead</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>18-24</td>
+      <td>1</td>
+      <td>53</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>18-24</td>
+      <td>0</td>
+      <td>61</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>25-34</td>
+      <td>1</td>
+      <td>121</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>25-34</td>
+      <td>0</td>
+      <td>152</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>35-44</td>
+      <td>1</td>
+      <td>95</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>35-44</td>
+      <td>0</td>
+      <td>114</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>45-54</td>
+      <td>1</td>
+      <td>103</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>45-54</td>
+      <td>0</td>
+      <td>66</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>55-64</td>
+      <td>1</td>
+      <td>64</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>55-64</td>
+      <td>0</td>
+      <td>81</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>65-74</td>
+      <td>1</td>
+      <td>7</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>65-74</td>
+      <td>0</td>
+      <td>28</td>
+      <td>101</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>75+</td>
+      <td>1</td>
+      <td>0</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>75+</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>The data could not be visualised as a scatter plot and neither was it possible to fit a regression line. So I decided to forge it.</p>
+
+<h2 id="forging-a-simple-example">Forging a simple example</h2>
+<p>Let’s “study” the hypothetical effect of smoking on libido.</p>
+
+<p>The idea is to create several separate clouds of points. Each cloud, regressed independantly will have a negative coefficients.</p>
+
+<p>But each cloud is located in such a way that is the regression happens on the whole cloud of points, the regression take place in the other direction</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Forge the data</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c"># Male data cloud</span>
+<span class="c"># xm: abscissa data, em = randomness for the ordinate, ym = ordianate, sexm = label</span>
+<span class="n">xm</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">35</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">em</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span><span class="o">+</span><span class="mi">5</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">ym</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="o">-.</span><span class="mi">5</span><span class="o">*</span><span class="n">xm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">em</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">sexm</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Male"</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+
+<span class="c"># Female data cloud</span>
+<span class="c"># xf: abscissa data, ef = randomness for the ordinate, yf = ordianate, sexf = label</span>
+<span class="n">xf</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">22</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">ef</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">yf</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="o">-.</span><span class="mi">75</span><span class="o">*</span><span class="n">xf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">ef</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">sexf</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Female"</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+
+<span class="c"># Concatenate the male and female data to be able to display aggregated clouds</span>
+<span class="n">xt</span> <span class="o">=</span> <span class="n">xm</span> <span class="o">+</span> <span class="n">xf</span> 
+<span class="n">yt</span> <span class="o">=</span> <span class="n">ym</span> <span class="o">+</span> <span class="n">yf</span> 
+<span class="n">sext</span> <span class="o">=</span> <span class="n">sexm</span> <span class="o">+</span> <span class="n">sexf</span>
+</code></pre>
+</div>
+
+<p>Let’s display the whole data cloud, without differentiating by sex.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<span class="n">x</span><span class="o">=</span><span class="n">xt</span>
+<span class="n">y</span><span class="o">=</span><span class="n">yt</span>
+<span class="n">sex</span><span class="o">=</span><span class="n">sext</span>
+<span class="n">sns</span><span class="o">.</span><span class="nb">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s">"ticks"</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s">"talk"</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">"x"</span><span class="p">:</span><span class="n">xt</span><span class="p">,</span><span class="s">"y"</span><span class="p">:</span><span class="n">yt</span><span class="p">,</span><span class="s">"sex"</span><span class="p">:</span><span class="n">sext</span><span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s">"y"</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s">"Number of cigarettes per day"</span><span class="p">,</span> <span class="s">"</span><span class="si">% </span><span class="s">variation of libido"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<p><img src="/assets/output_14_0.png" /></p>
+
+<p>The line seems to indicate a positive correlation between smoking a libido: the more the smoke, the more libido you have.</p>
+
+<p>Now let’s add our age covariate.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s">"y"</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s">"sex"</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s">"Number of cigarettes per day"</span><span class="p">,</span> <span class="s">"</span><span class="si">% </span><span class="s">variation of libido"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<p><img src="/assets/output_16_0.png" /></p>
+
+<p>That now looks more as expected… smoking has a negative effect on both groups when taken separately!</p>
+
+<p>Note that in the two graphs, the clouds of points in exactly the same!</p>
+
+<p>Final check… in the first graph, was our coefficient statistically significant?</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
+<span class="n">x_fit</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c"># Without it intercept is excluded</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x_fit</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_fit</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.111
+Model:                            OLS   Adj. R-squared:                  0.099
+Method:                 Least Squares   F-statistic:                     9.718
+Date:                Sat, 19 Nov 2016   Prob (F-statistic):            0.00255
+Time:                        22:41:26   Log-Likelihood:                -300.52
+No. Observations:                  80   AIC:                             605.0
+Df Residuals:                      78   BIC:                             609.8
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [95.0% Conf. Int.]
+------------------------------------------------------------------------------
+const        -12.6647      2.636     -4.804      0.000       -17.913    -7.417
+x1             0.3917      0.126      3.117      0.003         0.142     0.642
+==============================================================================
+Omnibus:                        2.345   Durbin-Watson:                   1.591
+Prob(Omnibus):                  0.310   Jarque-Bera (JB):                2.253
+Skew:                          -0.340   Prob(JB):                        0.324
+Kurtosis:                       2.538   Cond. No.                         47.2
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</code></pre>
+</div>
+
+<p>x1 coefficient has a p value of 0.003, which is significant if we reject the null hypothesis for p&lt;0.05 !</p>
+
+<h2 id="forging-a-multi-class-example">Forging a multi-class example</h2>
+<p>This second example uses the same technic as previously, but splits into 3 classes.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Forge the data</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c"># Age group 15-34</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">e1</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">82</span><span class="o">-.</span><span class="mi">15</span><span class="o">*</span><span class="n">x1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">e1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">age1</span> <span class="o">=</span> <span class="p">[</span><span class="s">"15-34"</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+
+<span class="c"># Age group 35-54</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">e2</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">75</span><span class="o">-.</span><span class="mi">3</span><span class="o">*</span><span class="n">x2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">e2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">age2</span> <span class="o">=</span> <span class="p">[</span><span class="s">"35-54"</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+
+<span class="c"># Age group 55+</span>
+<span class="n">x3</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">e3</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">y3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">68</span><span class="o">-.</span><span class="mi">45</span><span class="o">*</span><span class="n">x3</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">e3</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">age3</span> <span class="o">=</span> <span class="p">[</span><span class="s">"55+"</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+
+<span class="c"># Concatenate all the groups data to be able to display aggregated clouds</span>
+<span class="n">x4</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span> <span class="o">+</span> <span class="n">x3</span>
+<span class="n">y4</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">+</span> <span class="n">y2</span> <span class="o">+</span> <span class="n">y3</span>
+<span class="n">age4</span> <span class="o">=</span> <span class="n">age1</span> <span class="o">+</span> <span class="n">age2</span> <span class="o">+</span> <span class="n">age3</span>
+</code></pre>
+</div>
+
+<p>Again, let’s look at the aggregated data (unexepected result), split with covariate (expected result) and the significance factor.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Display the data without the confounding factor</span>
+<span class="n">x</span><span class="o">=</span><span class="n">x4</span>
+<span class="n">y</span><span class="o">=</span><span class="n">y4</span>
+<span class="n">age</span><span class="o">=</span><span class="n">age4</span>
+<span class="n">sns</span><span class="o">.</span><span class="nb">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s">"ticks"</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s">"talk"</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">"x"</span><span class="p">:</span><span class="n">x</span><span class="p">,</span><span class="s">"y"</span><span class="p">:</span><span class="n">y</span><span class="p">,</span><span class="s">"age"</span><span class="p">:</span><span class="n">age</span><span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s">"y"</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s">"Number of cigarettes per day"</span><span class="p">,</span> <span class="s">"Life expectancy"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<p><img src="/assets/output_23_0.png" /></p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Show the same data with confounding factor</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s">"y"</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s">"age"</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s">"Number of cigarettes per day"</span><span class="p">,</span> <span class="s">"Life expectancy"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<p><img src="/assets/output_24_0.png" /></p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Show the significance of the coefficient</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
+<span class="n">x_fit</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c"># Without it intercept is excluded</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x_fit</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_fit</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.067
+Model:                            OLS   Adj. R-squared:                  0.059
+Method:                 Least Squares   F-statistic:                     8.491
+Date:                Sat, 19 Nov 2016   Prob (F-statistic):            0.00427
+Time:                        22:43:39   Log-Likelihood:                -425.24
+No. Observations:                 120   AIC:                             854.5
+Df Residuals:                     118   BIC:                             860.0
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [95.0% Conf. Int.]
+------------------------------------------------------------------------------
+const         65.4403      1.695     38.598      0.000        62.083    68.798
+x1             0.2350      0.081      2.914      0.004         0.075     0.395
+==============================================================================
+Omnibus:                        0.616   Durbin-Watson:                   1.230
+Prob(Omnibus):                  0.735   Jarque-Bera (JB):                0.716
+Skew:                           0.014   Prob(JB):                        0.699
+Kurtosis:                       2.623   Cond. No.                         46.3
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</code></pre>
+</div>
+
+<h2 id="generate-an-example-with-double-paradox">Generate an example with double paradox</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Forge the data</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">ar</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">nr</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">ap</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">nP</span> <span class="o">=</span> <span class="p">(</span><span class="mi">17</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">std</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c"># Male/Smoker</span>
+<span class="n">xap</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">ap</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">ap</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">e</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">yap</span> <span class="o">=</span> <span class="p">[</span><span class="n">ap</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">xap</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="nb">min</span><span class="p">(</span><span class="n">xap</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">sap</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Tobacco"</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">aap</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Male"</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">lap</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Tobacco + Male"</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+
+<span class="c"># Female/Smoker</span>
+<span class="n">xnp</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">nP</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">nP</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">e</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">ynp</span> <span class="o">=</span> <span class="p">[</span><span class="n">nP</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">xnp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="nb">min</span><span class="p">(</span><span class="n">xnp</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">snp</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Tobacco"</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">anp</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Female"</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">lnp</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Tobacco + Female"</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+
+<span class="c"># Male/E-cigarette</span>
+<span class="n">xar</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">ar</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">ar</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">e</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">yar</span> <span class="o">=</span> <span class="p">[</span><span class="n">ar</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+.</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">xar</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="nb">min</span><span class="p">(</span><span class="n">xar</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">sar</span> <span class="o">=</span> <span class="p">[</span><span class="s">"E cigarettes"</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">aar</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Male"</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">lar</span> <span class="o">=</span> <span class="p">[</span><span class="s">"E cigarettes + Male"</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+
+<span class="c"># Female/E-cigarette</span>
+<span class="n">xnr</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">nr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">nr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">e</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">ynr</span> <span class="o">=</span> <span class="p">[</span><span class="n">nr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+.</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">xnr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="nb">min</span><span class="p">(</span><span class="n">xnr</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">snr</span> <span class="o">=</span> <span class="p">[</span><span class="s">"E cigarettes"</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">anr</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Female"</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">lnr</span> <span class="o">=</span> <span class="p">[</span><span class="s">"E cigarettes + Female"</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">xap</span> <span class="o">+</span> <span class="n">xnp</span> <span class="o">+</span> <span class="n">xar</span> <span class="o">+</span> <span class="n">xnr</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">yap</span> <span class="o">+</span> <span class="n">ynp</span> <span class="o">+</span> <span class="n">yar</span> <span class="o">+</span> <span class="n">ynr</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">sap</span> <span class="o">+</span> <span class="n">snp</span> <span class="o">+</span> <span class="n">sar</span> <span class="o">+</span> <span class="n">snr</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">aap</span> <span class="o">+</span> <span class="n">anp</span> <span class="o">+</span> <span class="n">aar</span> <span class="o">+</span> <span class="n">anr</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">lap</span> <span class="o">+</span> <span class="n">lnp</span> <span class="o">+</span> <span class="n">lar</span> <span class="o">+</span> <span class="n">lnr</span>
+</code></pre>
+</div>
+
+<p>Let’s look at our overall data. Does smoking tobacco or e-cigarettes impact your health?</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Display without confounding factor</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">"x"</span><span class="p">:</span><span class="n">x</span><span class="p">,</span><span class="s">"y"</span><span class="p">:</span><span class="n">y</span><span class="p">,</span><span class="s">"smoke"</span><span class="p">:</span><span class="n">s</span><span class="p">,</span><span class="s">"athlet"</span><span class="p">:</span><span class="n">a</span><span class="p">,</span><span class="s">"label"</span><span class="p">:</span><span class="n">l</span><span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s">"y"</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s">"Number of cigarettes per day"</span><span class="p">,</span> <span class="s">"</span><span class="si">% </span><span class="s">very healthy people"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<p><img src="/assets/output_29_0.png" /></p>
+
+<p>Ok, so far so good, it looks like smoking damages your health as expected.</p>
+
+<p>Let’s add a covariate and split by what people smoke.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Display woth one confounding factor</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s">"y"</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s">"smoke"</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s">"Number of cigarettes per day"</span><span class="p">,</span> <span class="s">"</span><span class="si">% </span><span class="s">very healthy people"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<p><img src="/assets/output_31_0.png" /></p>
+
+<p>Uh-oh! Now it appears tobacco is having a positive effect on health, whereas e-cigarettes are slightly harmful. Strange isn’t it?</p>
+
+<p>Let’s add again one more covariate!</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Display with two confounding factors</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s">"y"</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s">"label"</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s">"Number of cigarettes per day"</span><span class="p">,</span> <span class="s">"</span><span class="si">% </span><span class="s">very healthy people"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<p><img src="/assets/output_33_0.png" /></p>
+
+<p>Now we see a double reversal of the simpson’s paradox! 
+By adding successively new covariates, we were able to obtain successively very different results!</p>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>As we just saw, you can get a lot out of data, pretty much you can get them to tell anything you want!</p>
+
+<p>So as a data scientist, you need to be aware of the Simpson’s paradox so you can spot it when it occurs, that’s a no brainer.</p>
+
+<p>But most of all, it shows the importance of being a subject matter expert, or working with one, of area/data you want to process.</p>
+
+<h3 id="references">References</h3>
+<p>[1] Cohen. <a href="http://qpsy.snu.ac.kr/teaching/gradstat/Cohen.pdf">“The earth is round, p&lt;0.05”</a> The American Psychologist 49.12 (1994): 997-1003</p>
+
+<p>[2] Appleton, David R., Joyce M. French, and Mark PJ Vanderpump. “Ignoring a covariate: An example of Simpson’s paradox.” The American Statistician 50.4 (1996): 340-341.</p>
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+
+<ul class="pager">
+	
+	<li class="previous">
+		<a href="/2016/11/14/Titanic-Survival/" data-toggle="tooltip" data-placement="top" title="GA Project week 5 - Who survived the Titanic shipwreck?">&larr; Previous Post</a>
+	</li>
+	
+	
+</ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+<div class="container" style="padding-right: 50px;padding-left: 50px;">
+<div class="row">
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" id="disqus_thread">
+
+</div>
+</div>
+</div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = '';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+<hr>
+
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://linkedin.com/in/gregoryvial">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://github.com/GregVial">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="mailto:ds@gregvi.al">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; Grégory Vial 2016</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Contact Form JavaScript -->
+<script src="/js/jqBootstrapValidation.js"></script>
+<script src="/js/contact_me.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.min.js "></script>
+
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-86523398-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+
+</html>
