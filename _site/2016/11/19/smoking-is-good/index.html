@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Data Science and the intuitions behind it">
     
-    <!-- <link rel="icon" type="image/x-icon" href="http://localhost:4000/favicon.ico"> -->
+    <!-- <link rel="icon" type="image/x-icon" href="http://ds.gregvi.al/favicon.ico"> -->
     <!-- favicon -->
-    <link rel="shortcut icon" href="http://localhost:4000favicon.ico">
+    <link rel="shortcut icon" href="http://ds.gregvi.alfavicon.ico">
 
     <title>Smoking is good, p<0.05 - Data Salience</title>
 
-    <link rel="canonical" href="http://localhost:4000/2016/11/19/smoking-is-good/">
+    <link rel="canonical" href="http://ds.gregvi.al/2016/11/19/smoking-is-good/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -37,7 +37,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Data Salience" />
+    <link type="application/atom+xml" rel="alternate" href="http://ds.gregvi.al/feed.xml" title="Data Salience" />
 
 </head>
 
@@ -220,12 +220,12 @@ img:active{
 
 <p>My intention in this post is not to explain the paradox, as many have done it already before me, instead I just provide an illustration to set the context, and then I focus on how to forge data that leads to this paradox.</p>
 
-<p>This post is named after a very inspiring article by Jakob Cohen [1], explaining how the null hypothesis significance testing is misunderstood and misused, although it is the bread and butter of hundreds of thousands of statisticians around the world, including some of them internationaly renowned</p>
+<p>This post is named after a very inspiring article by Jakob Cohen [1], explaining how the null hypothesis significance testing is misunderstood and misused, although it is the bread and butter of tens of thousands of statisticians around the world.</p>
 
-<p>The post is also inspired by David Louapre’s <a href="https://sciencetonnante.wordpress.com/2013/04/29/le-paradoxe-de-simpson/">Science Etonnante (in french)</a> excellent blog post.</p>
+<p>The post is also inspired by David Louapre’s <a href="https://sciencetonnante.wordpress.com/2013/04/29/le-paradoxe-de-simpson/">Science Etonnante</a>(in french) excellent blog.</p>
 
 <h2 id="an-example-of-simpsons-paradox">An example of Simpson’s paradox</h2>
-<p>Let’s look at a real study performed in the seventies in a UK village [2]. The researchers surveyed woman, smoking and non smoking. They then reported the percentage of women still alive 20 years later.</p>
+<p>Let’s look at a real study performed in the seventies in a UK village [2]. The researchers surveyed women, smoking and non smoking. They then reported the percentage of women still alive 20 years later.</p>
 
 <p>The result was the following:</p>
 
@@ -241,15 +241,15 @@ img:active{
 
 <p>What we now observe is that mortality has generally been higher for the smokers than for the non smokers. Sounds more in line we what we expected, doesn’t it?</p>
 
-<p>So what happened? Well, the simpson’s paradox may happen when an important covariate (factor that has in influence on the result) is missing, and generally under specific circumpstances with unbalanced group sizes (non homogeneity).</p>
+<p>So what happened? Well, that’s an illustration of the simpson’s paradox. The paradox may happen when an important covariate (factor that has in influence on the result) is missing, and generally under specific circumpstances with unbalanced group sizes (non homogeneity).</p>
 
-<p>There are multiple examples of this paradox appearing in real life situation, including the famous UCI Berkeley students’ admissino discrimination case. At first glance, it appeared the admission ratio for male applicants was higher than that of female applicants (44% versus 35%). However, when splitting adding the major type as covariate, the results no longer showed any discrimination as the admission ratio was approximately similar for both male and females.</p>
+<p>There are multiple examples of this paradox appearing in real life situation, including the famous UCI Berkeley students’ admission discrimination case. At first glance, it that appeared the admission ratio for male applicants was higher than that of female applicants (44% versus 35%). However, when splitting data by major, the results no longer showed any discrimination as the admission ratio was approximately similar for both male and females. See this <a href="http://vudlab.com/simpsons/">excellent article</a> for more.</p>
 
 <h2 id="the-original-data">The original data</h2>
 
-<p>I got interested in forging data whilst studying linear regression. I worked on a small group project and wanted to come up with a striking example, which although it would have coefficients statistical coefficients woud lead to wrong conclusion.</p>
+<p>I got interested in forging data whilst studying linear regression. I worked on a small group project and wanted to come up with a striking example, which although it would have coefficients of statistical significance, the regression woud lead to wrong conclusion.</p>
 
-<p>I started with the study mentionned above. The raw data is presented below</p>
+<p>I started with the first study mentionned above (smoking/non smoking). The raw data is presented below</p>
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Initialize environment</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>

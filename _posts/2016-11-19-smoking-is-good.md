@@ -11,12 +11,12 @@ Much has been said about the Simpson's paradox, the famous statistic paradox tha
 
 My intention in this post is not to explain the paradox, as many have done it already before me, instead I just provide an illustration to set the context, and then I focus on how to forge data that leads to this paradox.
 
-This post is named after a very inspiring article by Jakob Cohen [1], explaining how the null hypothesis significance testing is misunderstood and misused, although it is the bread and butter of hundreds of thousands of statisticians around the world, including some of them internationaly renowned
+This post is named after a very inspiring article by Jakob Cohen [1], explaining how the null hypothesis significance testing is misunderstood and misused, although it is the bread and butter of tens of thousands of statisticians around the world.
 
-The post is also inspired by David Louapre's [Science Etonnante (in french)](https://sciencetonnante.wordpress.com/2013/04/29/le-paradoxe-de-simpson/) excellent blog post.
+The post is also inspired by David Louapre's [Science Etonnante](https://sciencetonnante.wordpress.com/2013/04/29/le-paradoxe-de-simpson/)(in french) excellent blog.
 
 ## An example of Simpson's paradox
-Let's look at a real study performed in the seventies in a UK village [2]. The researchers surveyed woman, smoking and non smoking. They then reported the percentage of women still alive 20 years later.
+Let's look at a real study performed in the seventies in a UK village [2]. The researchers surveyed women, smoking and non smoking. They then reported the percentage of women still alive 20 years later.
 
 The result was the following:
 
@@ -32,15 +32,15 @@ Indeed, if we refine the data and add a covariate, i.e. we now distinguish betwe
 
 What we now observe is that mortality has generally been higher for the smokers than for the non smokers. Sounds more in line we what we expected, doesn't it?
 
-So what happened? Well, the simpson's paradox may happen when an important covariate (factor that has in influence on the result) is missing, and generally under specific circumpstances with unbalanced group sizes (non homogeneity).
+So what happened? Well, that's an illustration of the simpson's paradox. The paradox may happen when an important covariate (factor that has in influence on the result) is missing, and generally under specific circumpstances with unbalanced group sizes (non homogeneity).
 
-There are multiple examples of this paradox appearing in real life situation, including the famous UCI Berkeley students' admissino discrimination case. At first glance, it appeared the admission ratio for male applicants was higher than that of female applicants (44% versus 35%). However, when splitting adding the major type as covariate, the results no longer showed any discrimination as the admission ratio was approximately similar for both male and females.
+There are multiple examples of this paradox appearing in real life situation, including the famous UCI Berkeley students' admission discrimination case. At first glance, it that appeared the admission ratio for male applicants was higher than that of female applicants (44% versus 35%). However, when splitting data by major, the results no longer showed any discrimination as the admission ratio was approximately similar for both male and females. See this [excellent article](http://vudlab.com/simpsons/) for more.
 
 ## The original data
 
-I got interested in forging data whilst studying linear regression. I worked on a small group project and wanted to come up with a striking example, which although it would have coefficients statistical coefficients woud lead to wrong conclusion. 
+I got interested in forging data whilst studying linear regression. I worked on a small group project and wanted to come up with a striking example, which although it would have coefficients of statistical significance, the regression woud lead to wrong conclusion. 
 
-I started with the study mentionned above. The raw data is presented below
+I started with the first study mentionned above (smoking/non smoking). The raw data is presented below
 
 
 ```python
