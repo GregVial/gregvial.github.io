@@ -1,6 +1,6 @@
 ---
 layout: post
-title: GA Project week 4 - How much is worth a data scientist?
+title: How much is worth a data scientist?
 author: Gregory Vial
 Categories: GeneralAssemblyProject
 Tag: Web scapping, Logistic Regression, Salaries
@@ -10,7 +10,7 @@ How much is worth a data scientist?
 
 There is no one who can tell you better... than a data scientist! That's probably what makes it the "sexiest job of the XXIst century" :)
 
-In this week 4 project we explored the data science job market in the US.
+In this project we explore the data science job market in the US.
 
 ### Approach
 

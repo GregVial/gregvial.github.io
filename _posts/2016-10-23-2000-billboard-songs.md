@@ -1,6 +1,6 @@
 ---
 layout: post
-title: GA Project week 2 - Year 2000 billboard songs analysis
+title: Year 2000 billboard songs analysis
 author: Gregory Vial
 Categories: GeneralAssemblyProject
 Tag: billboard, EDA
