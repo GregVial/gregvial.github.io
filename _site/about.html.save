@@ -12,9 +12,9 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="http://ds.gregvi.alfavicon.ico">
 
-    <title>Data Salience</title>
+    <title>About - Data Salience</title>
 
-    <link rel="canonical" href="http://ds.gregvi.al/">
+    <link rel="canonical" href="http://ds.gregvi.al/about.html.save">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -92,12 +92,12 @@
 
 
     <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+<header class="intro-header" style="background-image: url('/img/about-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="site-heading">
-                    <h1>Data Salience</h1>
+                    <h1>About</h1>
                     <hr class="small">
                     <span class="subheading">Data Science and the intuitions behind it</span>
                 </div>
@@ -110,69 +110,17 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/2016/12/16/word-o-tron/">
-        <h2 class="post-title">            Word-O-Tron
-        </h2>
-        
-    </a>
-    <p class="post-meta">Posted by Gregory Vial on December 16, 2016</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2016/11/21/what-makes-movies-successful/">
-        <h2 class="post-title">            Analysing Internet Movie DataBase
-        </h2>
-        
-    </a>
-    <p class="post-meta">Posted by Gregory Vial on November 21, 2016</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2016/11/19/smoking-is-good/">
-        <h2 class="post-title">            Smoking is good, p<0.05
-        </h2>
-        
-    </a>
-    <p class="post-meta">Posted by Gregory Vial on November 19, 2016</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2016/11/14/Titanic-Survival/">
-        <h2 class="post-title">            Who survived the Titanic shipwreck?
-        </h2>
-        
-    </a>
-    <p class="post-meta">Posted by Gregory Vial on November 14, 2016</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2016/11/10/How-much-worth-data-scientist/">
-        <h2 class="post-title">            How much is worth a data scientist?
-        </h2>
-        
-    </a>
-    <p class="post-meta">Posted by Gregory Vial on November 10, 2016</p>
-</div>
-<hr>
-
-
-<!-- Pager -->
-
-<ul class="pager">
-    
-    
-    <li class="next">
-        <a href="/page2">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
-
+			<p>I am a software engineer with a passion for big data.<p>
+<p>This blog was started in October 2016 as part of my data science learning journey.</p>
+<p>    
+I have explained in one of my first posts how much I admire Andrew Ng's teaching style and in particular his habit to always describe what he calls the <i>intuition</i> before going further into details. By intuition he means the core idea, the extreme simplification of a concept of phenomena that once undestood makes the rest of the learning process much simpler.
+<p>My main motivation for this blog is to help anyone interested in data science grasp some of the core concepts by explaining the intuition behind these concepts.  I will focus on topics that I found challenging to understand during my own learning journey.
+<p>
+<div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="light" data-vanity="gregvial"><a class="LI-simple-link" href='https://de.linkedin.com/in/gregvial?trk=profile-badge'>Gregory Vial</a></div>
+<p>
+<sub>Photo credits: <a href="mailto:photographe.irina@gmail.com">Irina Miclot</a></sub>
+<br>
+<sub>"Clean Blog" theme by <a href="https://startbootstrap.com/template-overviews/clean-blog/">Start Bootstrap</a></sub>
 
 		</div>
 	</div>

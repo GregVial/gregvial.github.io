@@ -12,9 +12,9 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="http://ds.gregvi.alfavicon.ico">
 
-    <title>Data Salience</title>
+    <title>Word-O-Tron - Data Salience</title>
 
-    <link rel="canonical" href="http://ds.gregvi.al/">
+    <link rel="canonical" href="http://ds.gregvi.al/2016/12/16/word-o-tron/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -91,92 +91,92 @@
 </nav>
 
 
-    <!-- Page Header -->
+    <!-- Post Header -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Data Salience</h1>
-                    <hr class="small">
-                    <span class="subheading">Data Science and the intuitions behind it</span>
+                <div class="post-heading">
+                    <h1>Word-O-Tron</h1>
+                    
+                    <span class="meta">Posted by Gregory Vial on December 16, 2016</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/2016/12/16/word-o-tron/">
-        <h2 class="post-title">            Word-O-Tron
-        </h2>
-        
-    </a>
-    <p class="post-meta">Posted by Gregory Vial on December 16, 2016</p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-<div class="post-preview">
-    <a href="/2016/11/21/what-makes-movies-successful/">
-        <h2 class="post-title">            Analysing Internet Movie DataBase
-        </h2>
-        
-    </a>
-    <p class="post-meta">Posted by Gregory Vial on November 21, 2016</p>
-</div>
-<hr>
+				<h2 id="introduction">Introduction</h2>
+<p>Languages have always fascinated me.</p>
 
-<div class="post-preview">
-    <a href="/2016/11/19/smoking-is-good/">
-        <h2 class="post-title">            Smoking is good, p<0.05
-        </h2>
-        
-    </a>
-    <p class="post-meta">Posted by Gregory Vial on November 19, 2016</p>
-</div>
-<hr>
+<p>I remember my first exposure to a foreign language when I was 7 or 8, on holiday in French Catalonia with my parents. We attended a concert sung in Catalan and the booklet provided before the concert contained lyrics both in French and Catalan. Since both are roman languages and are relatively similar, I could read and understand some Catalan words, and I started trying to decipher other unknown words by comparing the two versions. I kept this booklet for a long time, and although I never became fluent in Catalan, at least it triggered an interest which I never lost.</p>
 
-<div class="post-preview">
-    <a href="/2016/11/14/Titanic-Survival/">
-        <h2 class="post-title">            Who survived the Titanic shipwreck?
-        </h2>
-        
-    </a>
-    <p class="post-meta">Posted by Gregory Vial on November 14, 2016</p>
-</div>
-<hr>
+<p>An interesting point about languages is how, even without speaking them well, one can often quickly identify whether words belong to that language or not. Each language has patterns and once you know a few of them, telling a language from another becomes easy. Of course if you never been confronted to a language before, that’s not possible to identify it. Great example of supervised learning ;)</p>
 
-<div class="post-preview">
-    <a href="/2016/11/10/How-much-worth-data-scientist/">
-        <h2 class="post-title">            How much is worth a data scientist?
-        </h2>
-        
-    </a>
-    <p class="post-meta">Posted by Gregory Vial on November 10, 2016</p>
-</div>
-<hr>
+<p>Just for fun I decided to analyze the frequency of sequences of letters in French and Russian, and see if it can help forge words from these two languages. This is what this post is about.</p>
 
+<h2 id="letters-sequence-analysis">Letters sequence analysis</h2>
+<p>As a source of data I used dictionaries. I read them entirely, and I recorded the frequency of each two and three letters sequences (called 2-grams and 3-grams). I stored these data in a cube with on x-axis the first letter, on y-axis the second letter and on z-axis the third letter. Each value in the cube is the count of how many times the sequence occurs.
+After normalizing the values to obtain probabilities, the cube can easily be flatten to two dimensions so it can be visualized.</p>
 
-<!-- Pager -->
+<p>This is what the result looks like:</p>
 
-<ul class="pager">
-    
-    
-    <li class="next">
-        <a href="/page2">Older Posts &rarr;</a>
-    </li>
-    
+<p><img src="/assets/matrix_fr.png" />
+<img src="/assets/matrix_ru.png" /></p>
+
+<p>Note that the frequency is on a log scale in order to better highlight the different probabilities (otherwise some too extreme high values tend to kill readability), so the absolute values are hard to interpret, however the colors speak for themselves:</p>
+<ul>
+  <li>white: sequence does not exist</li>
+  <li>blue: sequence is rare</li>
+  <li>red: sequence is frequent</li>
 </ul>
 
+<p>It’s interesting to see that in both languages, some sequence never occur, whereas other are extremely frequent. 
+For instance in French, “q” is mostly followed by “u”, very rarely by “s” or “i”, sometimes it finishes the word, and that’s it. No other letter ever appears after q.</p>
 
-		</div>
-	</div>
-</div>
+<p>It’s interesting to look at the diagonal (starting bottom left and going to top right): it shows how frequently letters are repeated. In French, it turns out only 7 letters never appear twice in a row: “h”, “j”, “q”, “v”, “w”, “x”, “y”. The letter that follows itself most frequently is “s”.</p>
+
+<p>There are many conclusions you can make by studying the matrix. These are just two illustrations of patterns you unconsciously learn when you read a language.</p>
+
+<h2 id="words-generation">Words generation</h2>
+<p>With our table of frequencies at hand, we can run a markov chain to generate words that look like French or Russian words.</p>
+
+<p>I just had to pick a first letter based on its relative frequency as the first letter of a word, and then keep choosing letters based on their relative occurrence frequency based on the previous two letters in the word created.</p>
+
+<p>There is no real complexity here. The most difficult part of the implementation was to deal with special characters. French has a lot of accents (é, è, à, ù etc) and Russian is obviously using Cyrillic alphabet, not Latin.</p>
+
+<p>The result looks good and can easily be used to generate new vocabulary. Sometimes an actual word from the dictionary is generated.</p>
+
+<h2 id="the-word-o-tron-in-action">The Word-o-Tron in action</h2>
+<p>I implemented the Word-O-Tron using R and Shiny.
+The code is available on <a href="https://github.com/GregVial/WordGenerator">github</a> and the application itself on <a href="https://gregv.shinyapps.io/WordGenerator/">shiny server</a></p>
+
+<p>The result is a totally useless, however fun application :)</p>
+
+<p><img src="/assets/WordGenerator.png" /></p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2016/11/21/what-makes-movies-successful/" data-toggle="tooltip" data-placement="top" title="Analysing Internet Movie DataBase">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 
