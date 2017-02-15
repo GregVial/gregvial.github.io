@@ -7,6 +7,34 @@
 		<atom:link href="http://ds.gregvi.al/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>CoMNIST a repository of hand-written cyrillic and latin digitalized letters</title>
+				        
+				
+					<description>&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+&lt;p&gt;Anyone interested in machine learning has heard about &lt;a href=&quot;http://yann.lecun.com/exdb/mnist/&quot;&gt;MNIST&lt;/a&gt;, a dataset of hand-written digits made famous by the neural network researcher Yann LeCun.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Tue, 14 Feb 2017 00:00:00 +0100</pubDate>
+				<link>http://ds.gregvi.al/2017/02/14/CoMNIST/</link>
+				<guid isPermaLink="true">http://ds.gregvi.al/2017/02/14/CoMNIST/</guid>
+			</item>
+		
+			<item>
+				<title>Optimizing python code</title>
+				        
+				
+					<description>&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;So far in my data science journey I have mostly met reasonably small datasets, i.e. they always fit in my machine’s memory without any issue, so I was able to handle them without even having to think about enhancing my code for performance.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Sat, 04 Feb 2017 00:00:00 +0100</pubDate>
+				<link>http://ds.gregvi.al/2017/02/04/optimizing-python/</link>
+				<guid isPermaLink="true">http://ds.gregvi.al/2017/02/04/optimizing-python/</guid>
+			</item>
+		
+			<item>
 				<title>Word-O-Tron</title>
 				        
 				
@@ -15,7 +43,7 @@
 
 </description>
 				
-				<pubDate>Fri, 16 Dec 2016 00:00:00 +0000</pubDate>
+				<pubDate>Fri, 16 Dec 2016 00:00:00 +0100</pubDate>
 				<link>http://ds.gregvi.al/2016/12/16/word-o-tron/</link>
 				<guid isPermaLink="true">http://ds.gregvi.al/2016/12/16/word-o-tron/</guid>
 			</item>
@@ -29,7 +57,7 @@
 
 </description>
 				
-				<pubDate>Mon, 21 Nov 2016 00:00:00 +0000</pubDate>
+				<pubDate>Mon, 21 Nov 2016 00:00:00 +0100</pubDate>
 				<link>http://ds.gregvi.al/2016/11/21/what-makes-movies-successful/</link>
 				<guid isPermaLink="true">http://ds.gregvi.al/2016/11/21/what-makes-movies-successful/</guid>
 			</item>
@@ -43,7 +71,7 @@
 
 </description>
 				
-				<pubDate>Sat, 19 Nov 2016 00:00:00 +0000</pubDate>
+				<pubDate>Sat, 19 Nov 2016 00:00:00 +0100</pubDate>
 				<link>http://ds.gregvi.al/2016/11/19/smoking-is-good/</link>
 				<guid isPermaLink="true">http://ds.gregvi.al/2016/11/19/smoking-is-good/</guid>
 			</item>
@@ -57,7 +85,7 @@
 
 </description>
 				
-				<pubDate>Mon, 14 Nov 2016 00:00:00 +0000</pubDate>
+				<pubDate>Mon, 14 Nov 2016 00:00:00 +0100</pubDate>
 				<link>http://ds.gregvi.al/2016/11/14/Titanic-Survival/</link>
 				<guid isPermaLink="true">http://ds.gregvi.al/2016/11/14/Titanic-Survival/</guid>
 			</item>
@@ -70,7 +98,7 @@
 
 </description>
 				
-				<pubDate>Thu, 10 Nov 2016 00:00:00 +0000</pubDate>
+				<pubDate>Thu, 10 Nov 2016 00:00:00 +0100</pubDate>
 				<link>http://ds.gregvi.al/2016/11/10/How-much-worth-data-scientist/</link>
 				<guid isPermaLink="true">http://ds.gregvi.al/2016/11/10/How-much-worth-data-scientist/</guid>
 			</item>
@@ -83,7 +111,7 @@
 
 </description>
 				
-				<pubDate>Wed, 09 Nov 2016 00:00:00 +0000</pubDate>
+				<pubDate>Wed, 09 Nov 2016 00:00:00 +0100</pubDate>
 				<link>http://ds.gregvi.al/2016/11/09/What-is-Machine-Learning/</link>
 				<guid isPermaLink="true">http://ds.gregvi.al/2016/11/09/What-is-Machine-Learning/</guid>
 			</item>
@@ -98,7 +126,7 @@ Amongst all the training material available on the web, this is the one I find b
 
 </description>
 				
-				<pubDate>Fri, 28 Oct 2016 00:00:00 +0100</pubDate>
+				<pubDate>Fri, 28 Oct 2016 00:00:00 +0200</pubDate>
 				<link>http://ds.gregvi.al/2016/10/28/why-watch-andrew-ng-videos/</link>
 				<guid isPermaLink="true">http://ds.gregvi.al/2016/10/28/why-watch-andrew-ng-videos/</guid>
 			</item>
@@ -112,37 +140,9 @@ Amongst all the training material available on the web, this is the one I find b
 
 </description>
 				
-				<pubDate>Mon, 24 Oct 2016 00:00:00 +0100</pubDate>
+				<pubDate>Mon, 24 Oct 2016 00:00:00 +0200</pubDate>
 				<link>http://ds.gregvi.al/2016/10/24/White-paper-data-cleaning/</link>
 				<guid isPermaLink="true">http://ds.gregvi.al/2016/10/24/White-paper-data-cleaning/</guid>
-			</item>
-		
-			<item>
-				<title>Year 2000 billboard songs analysis</title>
-				        
-				
-					<description>&lt;h4 id=&quot;about-billboard&quot;&gt;About billboard&lt;/h4&gt;
-&lt;p&gt;To many, music is an art, a great source of pleasure, a way to relax.&lt;/p&gt;
-
-</description>
-				
-				<pubDate>Sun, 23 Oct 2016 00:00:00 +0100</pubDate>
-				<link>http://ds.gregvi.al/2016/10/23/2000-billboard-songs/</link>
-				<guid isPermaLink="true">http://ds.gregvi.al/2016/10/23/2000-billboard-songs/</guid>
-			</item>
-		
-			<item>
-				<title>Analysing SAT scores across the US</title>
-				        
-				
-					<description>&lt;h4 id=&quot;about-sat-scores&quot;&gt;About SAT scores&lt;/h4&gt;
-&lt;p&gt;The SAT is an english, paper-based standardized test widely used for college admissions in the United States. It consists of 3 parts: math, verbal and essay.&lt;/p&gt;
-
-</description>
-				
-				<pubDate>Sun, 16 Oct 2016 00:00:00 +0100</pubDate>
-				<link>http://ds.gregvi.al/2016/10/16/SAT-scores-analysis/</link>
-				<guid isPermaLink="true">http://ds.gregvi.al/2016/10/16/SAT-scores-analysis/</guid>
 			</item>
 		
 	</channel>

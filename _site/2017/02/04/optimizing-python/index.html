@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Data Science and the intuitions behind it">
+    
+    <!-- <link rel="icon" type="image/x-icon" href="http://ds.gregvi.al/favicon.ico"> -->
+    <!-- favicon -->
+    <link rel="shortcut icon" href="http://ds.gregvi.alfavicon.ico">
+
+    <title>Optimizing python code - Data Salience</title>
+
+    <link rel="canonical" href="http://ds.gregvi.al/2017/02/04/optimizing-python/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link type="application/atom+xml" rel="alternate" href="http://ds.gregvi.al/feed.xml" title="Data Salience" />
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Data Salience</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+				
+                <li>
+                    <a href="/about/">About</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/about.html.save">About</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/contact/">Contact</a>
+                </li>
+				
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading" style="padding: 30px 0">
+                    <h1>Optimizing python code</h1>
+                    
+                    <span class="meta">Posted by Gregory Vial on February 4, 2017</span>	
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+	
+	
+	
+	<div class="float-left">
+	<div class="recentpost" style="padding: 10px">
+	
+	<h4> Recently by the same author: </h4> 
+	
+	<hr class="style-one">
+	
+	<a href="/2017/02/14/CoMNIST/"><h2 class="post-title"> CoMNIST a repository of hand-written cyrillic and latin digitalized letters</h2></a>
+	
+	
+	
+	<p class="post-meta" style="margin-top: 5px;margin-bottom:5px; font-size: 0.8em">Posted by Gregory Vial on February 14, 2017</p>
+	
+	<div class="notepad-index-post-tags" style="">
+	
+	</div> 
+	
+			
+	
+	</div>
+	</div>
+	
+	
+	
+	
+		
+	
+
+<!-- Also Interesting -->
+
+
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	 
+	
+	
+	
+
+	
+	 
+	
+	
+	
+
+	
+	 
+	
+	
+	
+
+	
+	 
+	
+	
+	
+
+	
+	 
+	
+	
+	
+
+	
+	 
+	
+	
+	
+
+	
+	 
+	
+	
+	
+
+	
+	 
+	
+	
+	
+
+	
+	 
+	
+	
+	
+
+	
+	 
+	
+	
+	
+
+
+		</div>
+		</div>
+
+<!-- Post Content -->
+<style>
+img {
+	display:block;
+	max-width:  100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media only screen and (min-width: 1000px) {
+img {
+	-moz-transition:-moz-transform 0.5s ease-in; 
+	-webkit-transition:-webkit-transform 0.5s ease-in; 
+	-o-transition:-o-transform 0.5s ease-in;
+}
+img:active{
+	-moz-transform:scale(1.2); 
+	-webkit-transform:scale(1.2);
+	-o-transform:scale(1.2);
+}
+}
+
+@media only screen and (min-width: 1250px) {
+img {
+	-moz-transition:-moz-transform 0.5s ease-in; 
+	-webkit-transition:-webkit-transform 0.5s ease-in; 
+	-o-transition:-o-transform 0.5s ease-in;
+}
+img:active{
+	-moz-transform:scale(1.5); 
+	-webkit-transform:scale(1.5);
+	-o-transform:scale(1.5);
+}
+}
+
+@media only screen and (min-width: 1500px) {
+img {
+	-moz-transition:-moz-transform 0.5s ease-in; 
+	-webkit-transition:-webkit-transform 0.5s ease-in; 
+	-o-transition:-o-transform 0.5s ease-in;
+}
+img:active{
+	-moz-transform:scale(2); 
+	-webkit-transform:scale(2);
+	-o-transform:scale(2);
+}
+}
+</style>
+
+<article>
+    <div id="content" class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+<h2 id="introduction">Introduction</h2>
+<p>So far in my data science journey I have mostly met reasonably small datasets, i.e. they always fit in my machine’s memory without any issue, so I was able to handle them without even having to think about enhancing my code for performance.</p>
+
+<p>Recently I was working on a pet project aiming at performing customers segmentation on a dataset from a major sport retailer. The data contained 8+ million rows and whilst it still fit in memory, I soon noticed that performing exploratory data analysis was becoming too slow to allow me experiment freely.</p>
+
+<p>Therefore I had to find ways to optimize my code, and I found two great ways to do so:</p>
+<ul>
+  <li><strong>leverage vectorized operations</strong></li>
+  <li><strong>use cython, i.e. C-extension for python</strong></li>
+</ul>
+
+<p>Details about both options are described below.</p>
+
+<p>But first let’s say a few words about profiling</p>
+
+<h2 id="profiling">Profiling</h2>
+<p><strong>Profiling is a way of finding out how much resources/time is required for your code to run.</strong></p>
+
+<p>It’s useful to either compare two pieces of code that perform identical tasks in order to identify which one runs the fastest, or to identify bottlenecks in your code that you can then improve to speed up execution.</p>
+
+<h3 id="jupyter-magic-timeit">Jupyter magic %timeit</h3>
+<p>The simplest profiling tool comes with jupyter notebook, it’s a magic called <strong>%timeit</strong>.</p>
+
+<p>Here is a simple use case. Let’s find out how long it takes to sort one million integers randomly picked between 0 and 999</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">%</span><span class="n">timeit</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c">#10 loops, best of 3: 58.6 ms per loop</span>
+</code></pre>
+</div>
+
+<p>How to understand this?
+The timeit magic performed 3 times in a row 10 runs of the comand. It found out that for the fastest of the 3 runs, the command took 58.6 ms to execute in average (so it took the total 10 runs time and divided it by 10).</p>
+
+<p>Why 3 times?</p>
+
+<p>Because your computer might be busy doing something else that will impact the command performance. Therefore you want to reduce bias by executing the command a few times and take the best of it.</p>
+
+<p>Why 10 loops?</p>
+
+<p>If your command it very simple and extremly fast to execute, the timing measure won’t be very precise. In that case, better run 10 or 100 loops and output the average, this provides better accurary. Timeit chooses by itself how many loops to perform based on the command complexity.</p>
+
+<p>For instance if my list contains only 10 000 integers instead of one million, the sort is faster, therefore loops of 100 instead of 10 are executed:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">%</span><span class="n">timeit</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c">#100 loops, best of 3: 5.51 ms per loop</span>
+</code></pre>
+</div>
+
+<p>These parameters can be configured (‘-r’ specified the number of runs, ‘-n’ the number of loops), see the <a href="https://ipython.org/ipython-doc/3/interactive/magics.html#magic-timeit">timeit manual</a> for more.</p>
+
+<p>Also here i want to hightlight that we didn’t only calculate the sorting time, but the list generation time, since both were inculded in the same command. So if we want to understand exactly the performance of the sort algorithm, then we need to move the list generation out of the command which we profile.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">listy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">listy</span><span class="p">)</span>
+
+<span class="c">#100 loops, best of 3: 5.16 ms per loop</span>
+
+</code></pre>
+</div>
+
+<p>As expected, we now get a faster result! The main learning is that we should be careful of what exactly we are measuing !</p>
+
+<h3 id="the-cprofile-package">The cProfile package</h3>
+<p>The cProfike package provides more advanced features for profiling. It actually gives details about which part of your code is consumming most resources.</p>
+
+<p>Getting back to our random list generation and sorting, this is what we obtain:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">cProfile</span>
+<span class="n">cProfile</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s">'np.sort(np.random.randint(0,1000,10**6))'</span><span class="p">)</span>
+</code></pre>
+</div>
+<div class="highlighter-rouge"><pre class="highlight"><code>         9 function calls in 0.082 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.082    0.082 &lt;string&gt;:1(&lt;module&gt;)
+        1    0.000    0.000    0.062    0.062 fromnumeric.py:717(sort)
+        1    0.000    0.000    0.000    0.000 numeric.py:484(asanyarray)
+        1    0.000    0.000    0.082    0.082 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 {built-in method numpy.core.multiarray.array}
+        1    0.004    0.004    0.004    0.004 {method 'copy' of 'numpy.ndarray' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        1    0.020    0.020    0.020    0.020 {method 'randint' of 'mtrand.RandomState' objects}
+        1    0.058    0.058    0.058    0.058 {method 'sort' of 'numpy.ndarray' objects}
+</code></pre>
+</div>
+
+<p>The tottime column shows that the randint command took 20 milliseconds to run, and the sort 58.</p>
+
+<p>With these tools at hand, we are ready to start our optimization work!</p>
+
+<h2 id="vectorized-operations">Vectorized operations</h2>
+
+<p>Python is nice because it’s a relatively high level programming language, i.e. a lot of details are taken care of for you which makes programming faster, however the drawback is that you don’t always know what happens behind the scene.</p>
+
+<p>For quite some time I have been using vanilla lists, not really understanding what exactly numpy arrays were designed for.</p>
+
+<p>Finally came the day were I tried to perform simple operations on my 8+ millions rows dataset. When it takes about 10 seconds to execute a simple command, it may still seem acceptable until you try to run tens of these commands one after the other!</p>
+
+<p>And then I tried to perform more complex operations, and I finally hit “out of memory” issues.</p>
+
+<p>This is where numpy comes in handy. Numpy has been optimized to run vectorized operations, i.e. apply them to a whole array at a time, as opposed to applying the operation to each element of the array separately. And it makes a whole lot difference!</p>
+
+<p>Consider adding 1 to each value of a list. We will reuse our list of one million element from earlier. If you do that manually:</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">%</span><span class="n">timeit</span> <span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="n">i</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">listy</span><span class="p">]</span>
+
+<span class="c">#1 loop, best of 3: 204 ms per loop</span>
+</code></pre>
+</div>
+
+<p>Now look at the vectorized version of this code:</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">%</span><span class="n">timeit</span> <span class="n">listy</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="c">#1000 loops, best of 3: 1.02 ms per loop</span>
+</code></pre>
+</div>
+
+<p>Yes that’s right, 1.02 ms for vectorized operation versus 204 ms for non vectorized. <strong>200 times faster!</strong></p>
+
+<p><strong>How do you know when you perform vectorized versus non vectorized?</strong> From my experience, if you manipulate numpy objects (or pandas, which is build on top of numpy) and don’t use any loop (“for”, “while”…) or access subelements individually then you are probably using vectorized operations. <strong>Loops are killing you performance!</strong></p>
+
+<p>Also usually when you write a function and pass a whole array, series or dataframe to it, you’re on the right track. But if it takes as argument just one element, or a slice (such as a row), and you call it using apply on your dataframe/array, then expect poorer performances.</p>
+
+<p>It can get pretty cumbersome to write vectorized operations… but when performance is at stake, and sometimes even the simple fact to complete your command, than you have no choice.</p>
+
+<p>See in appendix two cases I had to face, one relatively simple, and the other one more complicated.</p>
+
+<h2 id="cython">Cython</h2>
+<p>Cython is a way to compile part of your code in C in order to accelerate its execution, or even to embed C-like code in python.</p>
+
+<p>I have been playing with cython in order to build various functions that beat numpy performance… And it’s a lot of fun!</p>
+
+<p>I present below the cumulative sum example, where I managed to beat numpy. However this is not always easy… try beating numpy at quicksort… good luck with that!</p>
+
+<h3 id="cumulative-sum-example">Cumulative sum example</h3>
+<p>Let’s study the performance difference for several implementations of the cumulative sum function, i.e we want a function a function that computes the cumulative sums of consecutive elements in a given numeric “x”, i.e., a vector “r” with <script type="math/tex">r_i = \sum_{j=1}^i x_j</script></p>
+
+<h4 id="vanilla-python">Vanilla python</h4>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">cumSum1</span><span class="p">(</span><span class="n">listy</span><span class="p">):</span>
+    <span class="s">""" This function computes the cumulative sum of elements of a list"""</span>
+    <span class="n">lengthy</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">listy</span><span class="p">)</span>
+    <span class="n">listz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">lengthy</span><span class="p">)</span>
+    <span class="n">listz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">listy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">lengthy</span><span class="p">):</span>
+        <span class="n">listz</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">listy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">listz</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">listz</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>-</p>
+<h4 id="python-compiled-in-c">Python, compiled in C</h4>
+<p>We only add the “%%cython” command at the beginning</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">%%</span><span class="n">cython</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">cumSum2</span><span class="p">(</span><span class="n">listy</span><span class="p">):</span>
+    <span class="s">""" This function computes the cumulative sum of elements of a list"""</span>
+    <span class="n">lengthy</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">listy</span><span class="p">)</span>
+    <span class="n">listz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">lengthy</span><span class="p">)</span>
+    <span class="n">listz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">listy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">lengthy</span><span class="p">):</span>
+        <span class="n">listz</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">listy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">listz</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">listz</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>-</p>
+<h4 id="cython-1">Cython</h4>
+<p>This time we have a bit more work to do. All variables must be defined with proper types using the cdef command, and in order to optimize the code the “for” loop has been replaced by a “while” loop. Apart from that there is little difference with the previous version of the code.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">%%</span><span class="n">cython</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">cimport</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="n">cpdef</span> <span class="n">cumSum3</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int64_t</span><span class="p">]</span> <span class="n">listy</span><span class="p">):</span>
+    <span class="s">""" This function computes the cumulative sum of elements of a list"""</span>
+    <span class="n">cdef</span> <span class="nb">int</span> <span class="n">lengthy</span> <span class="o">=</span> <span class="n">listy</span><span class="o">.</span><span class="n">size</span>
+    <span class="n">cdef</span> <span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">cdef</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">double_t</span><span class="p">]</span> <span class="n">listz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">lengthy</span><span class="p">)</span>
+    <span class="n">listz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">listy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">cdef</span> <span class="nb">int</span> <span class="n">previous</span> <span class="o">=</span> <span class="n">listy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">cdef</span> <span class="nb">int</span> <span class="n">current</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lengthy</span><span class="p">:</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">listy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">previous</span>
+        <span class="n">listz</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">current</span>
+        <span class="n">previous</span> <span class="o">=</span> <span class="n">current</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">listz</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>I won’t go into more details of cython code here as pretty much by copying this example and others in appendix, you can get started. More on <a href="http://cython.org/">cython.org</a></p>
+
+<h4 id="numpy">Numpy</h4>
+<p>Numpy has a built-in “cumsum” function so we don’t need to write any code here.</p>
+
+<h4 id="performance-comparison">Performance comparison</h4>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">7</span><span class="p">)</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">cumSum1</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">cumSum2</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">cumSum3</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+
+<span class="c">#1 loop, best of 3: 20 s per loop</span>
+<span class="c">#1 loop, best of 3: 19.8 s per loop</span>
+<span class="c">#10 loops, best of 3: 20.8 ms per loop</span>
+<span class="c">#10 loops, best of 3: 34 ms per loop</span>
+
+</code></pre>
+</div>
+
+<p>And the winner is… our cython function cumSum3 !!!</p>
+
+<p>Whilst there is little difference between vanilla and compiled (I have seen sometimes more impressive gains), the move to cython simply drives a drastic improvement of nearly 1000 times!</p>
+
+<p>And numpy runs 70% slower than our cython function.</p>
+
+<h3 id="checking-the-actual-c-code">Checking the actual C code</h3>
+<p>When running the %%cython command, you can add a “-a” flag that shows the C code generated for each line of cython. For  instance:</p>
+
+<p><img src="/assets/cython-compile.png" /></p>
+
+<p>If lines are highlighted in yellow it means they lead to many lines of code (high complexity) and if this code is repeated many times (embedded in a loop), it’s a sign you may want to optimze it.</p>
+
+<p>This tool is great to spot what part of your code are not optimal and need enhancement. For instance, if you write this same code with a “for” loop instead of “while”, you can see that it’s translated into many more lines of C code (dark yellow highlight):</p>
+
+<p><img src="/assets/cython-compile2.png" /></p>
+
+<p>In that case the difference is probably small, but if you start embedding “for” loops, it will drive performance degradation, much more than embedded “while” loop.</p>
+
+<p>This is one example amongst many. I have not finished exploring all the optimization opportunities, and I encourage you to try on your own!</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>This blog post showed two relatively easy ways to optimze python code. Undoubtly there are other tehniques, and in some cases data is so large that it won’t fit in memory, in which case you need to move to distributed processing, with spark for instance.</p>
+
+<p>However these two techniques are a must know for anyone serious about writting fast and efficient code.</p>
+
+<p>Enjoy!</p>
+
+<h2 id="appendix">Appendix</h2>
+
+<p>In this appendix I provide a few more examples of code optimization: 2 with vectorized operations, 2 with cython.</p>
+
+<h3 id="vectorized-example-1">Vectorized example 1</h3>
+<p>In this case I simply wanted to map categorical values to numbers.</p>
+
+<p>Non vectorized</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">gender_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Male'</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s">'Female'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s">'UNDEFINED'</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="p">}</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">df</span><span class="p">[</span><span class="s">"Gender"</span><span class="p">]</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">gender_dict</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+
+<span class="c">#1 loop, best of 3: 2.65 s per loop</span>
+</code></pre>
+</div>
+
+<p>Vectorires</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">set_gender</span><span class="p">(</span><span class="n">col</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s">'MALE'</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">size</span><span class="p">)])</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">col</span> <span class="o">==</span> <span class="s">"UNDEFINED"</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="n">res</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">col</span> <span class="o">==</span> <span class="s">"Female"</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">res</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">set_gender</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">"Gender"</span><span class="p">])</span>
+
+<span class="c">#1 loop, best of 3: 2.04 s per loop</span>
+</code></pre>
+</div>
+
+<p>The time difference may not seem so impressive here, but it’s already 30% less. And in fact other more complicated examples of the same type (with more categories for instance) have shown a much greater improvement by using vectorization.</p>
+
+<h3 id="vectorized-example-2">Vectorized example 2</h3>
+<p>My data set contains 8+ million purchase records. I wanted to calculate how many days took place between each purchase, and put that information in a new column.
+In order to perform this as a vector operation, then only way I found was to duplicate the customer id (index) and purchase dates, and to shift them by one row. As a result you can compare dates from the original date column and from the new date column on the same row, and therefore no loop or complicated individual element access is required!</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">days_between_purchases</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="c"># Create a shifted copy of indices (=customer ids)</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">"index"</span><span class="p">]</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="n">indices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">new_indices</span> <span class="o">=</span> <span class="n">indices</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">new_indices</span><span class="p">[</span><span class="n">indices</span><span class="o">.</span><span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="n">first</span>
+    <span class="n">new_indices</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">indices</span><span class="o">.</span><span class="n">index</span>
+    <span class="c"># Create a shifted copy of purchase dates</span>
+    <span class="n">dates</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">"Date of purchase"</span><span class="p">]</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="n">dates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">new_dates</span> <span class="o">=</span> <span class="n">dates</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">new_dates</span><span class="p">[</span><span class="n">dates</span><span class="o">.</span><span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="n">first</span>
+    <span class="n">new_dates</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">dates</span><span class="o">.</span><span class="n">index</span>
+    
+    <span class="c"># Add date when customer match</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">indices</span> <span class="o">==</span> <span class="n">new_indices</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">new_dates</span> <span class="o">-</span> <span class="n">dates</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">'timedelta64[D]'</span><span class="p">)),</span><span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span>
+</code></pre>
+</div>
+
+<p>Without vectorization, creating the new row was simply craashing my jupyter notebook. With vectorization, it’s executed within a fraction of a second.</p>
+
+<h3 id="cython-example-1-is-a-list-a-palindrome">Cython example 1: is a list a palindrome</h3>
+<p>Python compiled in C</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">%%</span><span class="n">cython</span> 
+<span class="k">def</span> <span class="nf">palindrome</span><span class="p">(</span><span class="n">listy</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">while</span> <span class="bp">True</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">i</span><span class="o">&lt;=</span><span class="nb">len</span><span class="p">(</span><span class="n">listy</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">listy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">listy</span><span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">res</span>
+</code></pre>
+</div>
+
+<p>Cython</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">%%</span><span class="n">cython</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">cimport</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">cpython</span> <span class="nn">cimport</span> <span class="nn">bool</span><span class="err">
+</span><span class="nn">cpdef</span> <span class="nn">cpalindrome</span><span class="err">(</span><span class="nn">np.ndarray</span><span class="err">[</span><span class="nn">np.int64_t</span><span class="err">]</span> <span class="nn">listy</span><span class="err">):
+</span>    <span class="nn">cdef</span> <span class="nn">bool</span> <span class="nn">res</span> <span class="err">=</span> <span class="nn">True</span><span class="err">
+</span>    <span class="nn">cdef</span> <span class="nn">int</span> <span class="nn">i</span> <span class="err">=</span> <span class="err">0
+</span>    <span class="nn">cdef</span> <span class="nn">int</span> <span class="nn">lengthy</span> <span class="err">=</span> <span class="nn">listy.size</span><span class="err">//2
+</span>    <span class="nn">cdef</span> <span class="nn">int</span> <span class="nn">remainder</span> <span class="err">=</span> <span class="nn">listy.size</span><span class="err">%2
+</span>    <span class="nn">cdef</span> <span class="nn">np.ndarray</span><span class="err">[</span><span class="nn">np.int64_t</span><span class="err">]</span> <span class="nn">list1</span> <span class="err">=</span> <span class="nn">listy</span><span class="err">[:</span><span class="nn">lengthy</span><span class="err">]
+</span>    <span class="nn">cdef</span> <span class="nn">np.ndarray</span><span class="err">[</span><span class="nn">np.int64_t</span><span class="err">]</span> <span class="nn">list2</span> <span class="err">=</span> <span class="nn">listy</span><span class="err">[</span><span class="nn">remainder</span><span class="err">+</span><span class="nn">lengthy</span><span class="err">:]
+</span>    <span class="nn">list2</span> <span class="err">=</span> <span class="nn">list2</span><span class="err">[::-1]
+</span>    <span class="nn">return</span> <span class="nn">np.array_equal</span><span class="err">(</span><span class="nn">list1</span><span class="err">,</span><span class="nn">list2</span><span class="err">)
+</span></code></pre>
+</div>
+
+<p>Results</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">l1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="n">l1</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span><span class="n">l2</span><span class="p">)</span>
+
+<span class="o">%</span><span class="n">timeit</span> <span class="n">palindrome</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">cpalindrome</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+
+<span class="c">#1 loop, best of 3: 2.63 s per loop</span>
+<span class="c">#100 loops, best of 3: 13.6 ms per loop</span>
+</code></pre>
+</div>
+<p>-</p>
+
+<h3 id="cython-example-2-reverse-elements-of-a-list">Cython example 2: reverse elements of a list</h3>
+<p>Python compiled in C</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">%%</span><span class="n">cython</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="k">def</span> <span class="nf">invert</span><span class="p">(</span><span class="n">listy</span><span class="p">):</span>
+    <span class="s">""" This function reverses the order of elements of a list"""</span>
+    <span class="n">lengthy</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">listy</span><span class="p">)</span>
+    <span class="n">listz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">lengthy</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">lengthy</span><span class="p">):</span>
+        <span class="n">listz</span><span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">listy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">listz</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Cython</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">%%</span><span class="n">cython</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">cimport</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">cpython</span> <span class="nn">cimport</span> <span class="nn">bool</span><span class="err">
+</span><span class="nn">cpdef</span> <span class="nn">cinvert</span><span class="err">(</span><span class="nn">np.ndarray</span><span class="err">[</span><span class="nn">np.int64_t</span><span class="err">]</span> <span class="nn">listy</span><span class="err">):
+</span>    <span class="err">"""</span> <span class="nn">This</span> <span class="nn">function</span> <span class="nn">reverses</span> <span class="nn">the</span> <span class="nn">order</span> <span class="nn">of</span> <span class="nn">elements</span> <span class="nn">of</span> <span class="nn">a</span> <span class="nn">list</span><span class="err">"""
+</span>    <span class="nn">cdef</span> <span class="nn">int</span> <span class="nn">lengthy</span> <span class="err">=</span> <span class="nn">listy.size</span><span class="err">
+</span>    <span class="nn">cdef</span> <span class="nn">int</span> <span class="nn">i</span> <span class="err">=</span> <span class="err">0
+</span>    <span class="nn">cdef</span> <span class="nn">int</span> <span class="nn">j</span> <span class="err">=</span> <span class="nn">lengthy</span><span class="err">-1
+</span>    <span class="nn">cdef</span> <span class="nn">np.ndarray</span><span class="err">[</span><span class="nn">np.double_t</span><span class="err">]</span> <span class="nn">listz</span> <span class="err">=</span> <span class="nn">np.empty</span><span class="err">(</span><span class="nn">lengthy</span><span class="err">)
+</span>    <span class="nn">while</span> <span class="nn">i</span><span class="err">&lt;</span><span class="nn">lengthy</span><span class="err">:
+</span>        <span class="nn">listz</span><span class="err">[</span><span class="nn">j</span><span class="err">]</span> <span class="err">=</span> <span class="nn">listy</span><span class="err">[</span><span class="nn">i</span><span class="err">]
+</span>        <span class="nn">i</span> <span class="err">+=</span> <span class="err">1
+</span>        <span class="nn">j</span> <span class="err">-=</span> <span class="err">1
+</span>    <span class="nn">return</span><span class="err">(</span><span class="nn">listz</span><span class="err">)
+</span></code></pre>
+</div>
+
+<p>Results</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="o">%</span><span class="n">timeit</span> <span class="n">invert</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">cinvert</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+
+<span class="c">#1 loop, best of 3: 4.42 s per loop</span>
+<span class="c">#10 loops, best of 3: 25.7 ms per loop</span>
+
+</code></pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+
+<ul class="pager">
+	
+	<li class="previous">
+		<a href="/2016/12/16/word-o-tron/" data-toggle="tooltip" data-placement="top" title="Word-O-Tron">&larr; Previous Post</a>
+	</li>
+	
+	
+	<li class="next">
+		<a href="/2017/02/14/CoMNIST/" data-toggle="tooltip" data-placement="top" title="CoMNIST a repository of hand-written cyrillic and latin digitalized letters">Next Post &rarr;</a>
+	</li>
+	
+</ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+<div class="container" style="padding-right: 50px;padding-left: 50px;">
+<div class="row">
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" id="disqus_thread">
+
+</div>
+</div>
+</div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = '';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+<hr>
+
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://linkedin.com/in/gregvial">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://github.com/GregVial">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="mailto:ds@gregvi.al">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; Grégory Vial 2017</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Contact Form JavaScript -->
+<script src="/js/jqBootstrapValidation.js"></script>
+<script src="/js/contact_me.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.min.js "></script>
+
+<!-- Mathjax -->
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-86523398-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+
+</html>

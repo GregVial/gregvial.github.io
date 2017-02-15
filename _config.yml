@@ -19,6 +19,7 @@ google_tracking_id: UA-86523398-1
 
 # Build settings
 markdown: kramdown
+#markdown: redcarpet
 highlighter: rouge
 permalink: pretty
 paginate: 5

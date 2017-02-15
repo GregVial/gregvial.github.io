@@ -174,7 +174,7 @@ I have explained in one of my first posts how much I admire Andrew Ng's teaching
                     </li>
                     
                 </ul>
-                <p class="copyright text-muted">Copyright &copy; Grégory Vial 2016</p>
+                <p class="copyright text-muted">Copyright &copy; Grégory Vial 2017</p>
             </div>
         </div>
     </div>
@@ -192,6 +192,12 @@ I have explained in one of my first posts how much I admire Andrew Ng's teaching
 
 <!-- Custom Theme JavaScript -->
 <script src="/js/clean-blog.min.js "></script>
+
+<!-- Mathjax -->
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 
 
     
