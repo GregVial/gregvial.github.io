@@ -7,17 +7,16 @@
 		<atom:link href="http://ds.gregvi.al/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>CoMNIST a repository of hand-written cyrillic and latin digitalized letters</title>
+				<title>Video Algorithm, Artificial Intelligence, Big data should we be afraid about it?</title>
 				        
 				
-					<description>&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
-&lt;p&gt;Anyone interested in machine learning has heard about &lt;a href=&quot;http://yann.lecun.com/exdb/mnist/&quot;&gt;MNIST&lt;/a&gt;, a dataset of hand-written digits made famous by the neural network researcher Yann LeCun.&lt;/p&gt;
+					<description>&lt;p&gt;Talk give at Data Science Retreat in Berlin on February 17th, 2017&lt;/p&gt;
 
 </description>
 				
-				<pubDate>Tue, 14 Feb 2017 00:00:00 +0100</pubDate>
-				<link>http://ds.gregvi.al/2017/02/14/CoMNIST/</link>
-				<guid isPermaLink="true">http://ds.gregvi.al/2017/02/14/CoMNIST/</guid>
+				<pubDate>Mon, 20 Feb 2017 00:00:00 +0100</pubDate>
+				<link>http://ds.gregvi.al/2017/02/20/video-algo-ai-big-data/</link>
+				<guid isPermaLink="true">http://ds.gregvi.al/2017/02/20/video-algo-ai-big-data/</guid>
 			</item>
 		
 			<item>
