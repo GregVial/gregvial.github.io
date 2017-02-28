@@ -7,6 +7,20 @@
 		<atom:link href="http://ds.gregvi.al/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>CoMNIST - a dataset of cyrillic and latin hand-written letters for machine learning</title>
+				        
+				
+					<description>&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+&lt;p&gt;Anyone interested in machine learning has heard about &lt;a href=&quot;http://yann.lecun.com/exdb/mnist/&quot;&gt;MNIST dataset&lt;/a&gt;, a repository of hand-written digits made famous by the neural network researcher Yann LeCun.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Tue, 28 Feb 2017 00:00:00 +0100</pubDate>
+				<link>http://ds.gregvi.al/2017/02/28/CoMNIST/</link>
+				<guid isPermaLink="true">http://ds.gregvi.al/2017/02/28/CoMNIST/</guid>
+			</item>
+		
+			<item>
 				<title>Video Algorithm, Artificial Intelligence, Big data should we be afraid about it?</title>
 				        
 				
@@ -128,20 +142,6 @@ Amongst all the training material available on the web, this is the one I find b
 				<pubDate>Fri, 28 Oct 2016 00:00:00 +0200</pubDate>
 				<link>http://ds.gregvi.al/2016/10/28/why-watch-andrew-ng-videos/</link>
 				<guid isPermaLink="true">http://ds.gregvi.al/2016/10/28/why-watch-andrew-ng-videos/</guid>
-			</item>
-		
-			<item>
-				<title>White paper about the philosophy of 'Clean Data'</title>
-				        
-				
-					<description>&lt;h3 id=&quot;motivation&quot;&gt;Motivation&lt;/h3&gt;
-&lt;p&gt;It said that a proportion as large as 80% of data analysis is spent on cleaning the data to make it suitable for the analysis itself. This mandatory but low value-added activity diverts the analysts attention from activities that matter most: building efficient predictive models and providing insights to data that will help executives make sensitive business decisions.&lt;/p&gt;
-
-</description>
-				
-				<pubDate>Mon, 24 Oct 2016 00:00:00 +0200</pubDate>
-				<link>http://ds.gregvi.al/2016/10/24/White-paper-data-cleaning/</link>
-				<guid isPermaLink="true">http://ds.gregvi.al/2016/10/24/White-paper-data-cleaning/</guid>
 			</item>
 		
 	</channel>

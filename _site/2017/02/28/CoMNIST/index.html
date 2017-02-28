@@ -12,9 +12,9 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="http://ds.gregvi.alfavicon.ico">
 
-    <title>Data Salience</title>
+    <title>CoMNIST - a dataset of cyrillic and latin hand-written letters for machine learning - Data Salience</title>
 
-    <link rel="canonical" href="http://ds.gregvi.al/page2/">
+    <link rel="canonical" href="http://ds.gregvi.al/2017/02/28/CoMNIST/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -85,96 +85,98 @@
 </nav>
 
 
-    <!-- Page Header -->
+    <!-- Post Header -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Data Salience</h1>
-                    <hr class="small">
-                    <span class="subheading">Data Science and the intuitions behind it</span>
+                <div class="post-heading">
+                    <h1>CoMNIST - a dataset of cyrillic and latin hand-written letters for machine learning</h1>
+                    
+                    <span class="meta">Posted by Gregory Vial on February 28, 2017</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/2016/11/19/smoking-is-good/">
-        <h2 class="post-title">            Smoking is good, p<0.05
-        </h2>
-        
-    </a>
-    <p class="post-meta">Posted by Gregory Vial on November 19, 2016</p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-<div class="post-preview">
-    <a href="/2016/11/14/Titanic-Survival/">
-        <h2 class="post-title">            Who survived the Titanic shipwreck?
-        </h2>
-        
-    </a>
-    <p class="post-meta">Posted by Gregory Vial on November 14, 2016</p>
-</div>
-<hr>
+				<h2 id="background">Background</h2>
+<p>Anyone interested in machine learning has heard about <a href="http://yann.lecun.com/exdb/mnist/">MNIST dataset</a>, a repository of hand-written digits made famous by the neural network researcher Yann LeCun.</p>
 
-<div class="post-preview">
-    <a href="/2016/11/10/How-much-worth-data-scientist/">
-        <h2 class="post-title">            How much is worth a data scientist?
-        </h2>
-        
-    </a>
-    <p class="post-meta">Posted by Gregory Vial on November 10, 2016</p>
-</div>
-<hr>
+<p>This dataset contains 70,000 images of digitalized hand-written digits (characters from 0 to 9), and is very often used for educational purposes. Being able to identify which digit an image represents is a classical classification exercise, and people learning neural networks often build their first using MNIST. It can be considered the “Hello, world!” of neural nets.</p>
 
-<div class="post-preview">
-    <a href="/2016/11/09/What-is-Machine-Learning/">
-        <h2 class="post-title">            What is Machine Learning?
-        </h2>
-        
-    </a>
-    <p class="post-meta">Posted by Gregory Vial on November 9, 2016</p>
-</div>
-<hr>
+<p>MNIST stands for Modified NIST and is a subset of a <a href="https://www.nist.gov/srd/nist-special-database-19">larger dataset</a> released by the NIST (US National Institute for Standards and Technology). NIST provides 800,000 images of digits and letters of the latin alphabet.</p>
 
-<div class="post-preview">
-    <a href="/2016/10/28/why-watch-andrew-ng-videos/">
-        <h2 class="post-title">            Why you should watch Andrew Ng's Machine Learning course
-        </h2>
-        
-    </a>
-    <p class="post-meta">Posted by Gregory Vial on October 28, 2016</p>
-</div>
-<hr>
+<p>Hitorically the NIST database was made available at a prohibitive cost, and although it can now be downloaded for free, it is still copyrighted to the US Secretary of Commerce, so usage that can be made of it is unclear.</p>
 
+<h2 id="introducing-comnist">Introducing CoMNIST</h2>
 
-<!-- Pager -->
+<p><img src="/assets/logo-comnist.png" height="80" /></p>
 
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/">&larr; Newer Posts</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/page3">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
+<p>CoMNIST is a free, crowd-sourced version of MNIST that contains digitalized letters from the cyrillic and latin alphabet.</p>
+
+<p>CoMNIST stands for Cyrillic-oriented MNIST, but also makes reference to the latin meaning of co-: “with”, “together”</p>
+
+<p>CoMNIST is distributed under the <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribyte/ShareAlike</a> license, which means it can be freely distributed, modified or used, including for commercial purposes.</p>
+
+<p>CoMNIST is (or will be) available on this <a href="https://github.com/GregVial/CoMNIST">GitHub repo</a></p>
+
+<p>It is expected that the size of CoMNIST will grow over time, so although it may start small, my hope is that data lovers of all boards will find it useful and contribute largely to it.</p>
+
+<h2 id="contribute">Contribute</h2>
+
+<p><a href="comnist.gregvi.al">English version</a> -
+<a href="comnist.gregvi.al/?ru">Russian version</a> -
+<a href="comnist.gregvi.al/?fr">French version</a></p>
+
+<h2 id="method">Method</h2>
+
+<h3 id="collection">Collection</h3>
+
+<p>The initial set of data is being collected through a <a href="comnist.gregvi.al">website</a> that kindly requests anyone interested in the initiative to draw some specified letters, with the finger and on a device with touch screen. The drawings are then saved as an image file on the server.</p>
+
+<p>Users will be reached out mostly through social networks (Facebook, VKontakte, LinkedIn) but also during some data science related meetups in Berlin. We hope to encourage people to participate in this initiative thanks to the objectives, i.e. non commercial, educational applications related to language learning for kids and/or foreign adults (more on this on a later blog post). Parents are encouraged to let their children participate in order to obtain more images, and maybe from a less “canonical” form, as that will potentially help betters train classification models.</p>
+
+<p>Some concepts of gamificaiton have been used to encourage the users to spend more time drawing letters, in order to maximise the number of images collected: rewards, encouragements etc</p>
+
+<p>At the end of the experience (that can be stopped at anytime), user are asked to provide their name and/or email address to be kept informed of further developmens of the project.</p>
+
+<p>Users are also encouraged to share their experience of facebook to increase the number of recruited “drawers”</p>
+
+<h3 id="sanitation">Sanitation</h3>
+
+<p>There is a risk that some of the data input is incorrectly classified or simply not matching any real letter (vandalism, children using the app without supervision). Therefore sanitation is an important part of the process.</p>
+
+<p>To do so, anomaly detection technic have been implemented as described by Andrew Ng in his Coursera course on machine learning. Each letter is analysed and if not considered “standard” based on statistics calculated on the whole corpus of similar letter it is rejected</p>
+
+<h2 id="next-steps">Next steps</h2>
+
+<p>The intention is to build some web apps for language learning as soon as enough data has been collected to properly trained a neural network able to recognize letters/words with a high accuracy.</p>
+
+<p>Stay tuned!</p>
 
 
-		</div>
-	</div>
-</div>
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2017/02/20/video-algo-ai-big-data/" data-toggle="tooltip" data-placement="top" title="Video Algorithm, Artificial Intelligence, Big data should we be afraid about it?">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 
