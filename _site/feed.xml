@@ -7,6 +7,19 @@
 		<atom:link href="http://ds.gregvi.al/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Video Introducing CoMNIST dataset at PyData Berlin</title>
+				        
+				
+					<description>&lt;p&gt;Talk give at PyData meetup in Berlin on March 15th, 2017&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Thu, 16 Mar 2017 00:00:00 +0100</pubDate>
+				<link>http://ds.gregvi.al/2017/03/16/pydata-comnist/</link>
+				<guid isPermaLink="true">http://ds.gregvi.al/2017/03/16/pydata-comnist/</guid>
+			</item>
+		
+			<item>
 				<title>CoMNIST - a dataset of cyrillic and latin hand-written letters for machine learning</title>
 				        
 				
@@ -127,21 +140,6 @@
 				<pubDate>Wed, 09 Nov 2016 00:00:00 +0100</pubDate>
 				<link>http://ds.gregvi.al/2016/11/09/What-is-Machine-Learning/</link>
 				<guid isPermaLink="true">http://ds.gregvi.al/2016/11/09/What-is-Machine-Learning/</guid>
-			</item>
-		
-			<item>
-				<title>Why you should watch Andrew Ng's Machine Learning course</title>
-				        
-				
-					<description>&lt;h3 id=&quot;where-to-start-your-data-science-learning-journey&quot;&gt;Where to start your data science learning journey?&lt;/h3&gt;
-&lt;p&gt;Anyone interested in learning data science should at least once watch Andrew Ng’s Machine Learning course on &lt;a href=&quot;https://www.coursera.org/learn/machine-learning&quot;&gt;Coursera&lt;/a&gt;.
-Amongst all the training material available on the web, this is the one I find by far the most remarkable to get started in this field.&lt;/p&gt;
-
-</description>
-				
-				<pubDate>Fri, 28 Oct 2016 00:00:00 +0200</pubDate>
-				<link>http://ds.gregvi.al/2016/10/28/why-watch-andrew-ng-videos/</link>
-				<guid isPermaLink="true">http://ds.gregvi.al/2016/10/28/why-watch-andrew-ng-videos/</guid>
 			</item>
 		
 	</channel>
